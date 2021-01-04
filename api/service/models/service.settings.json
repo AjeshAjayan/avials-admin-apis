@@ -1,0 +1,65 @@
+{
+  "kind": "collectionType",
+  "collectionName": "services",
+  "info": {
+    "name": "Service",
+    "description": ""
+  },
+  "options": {
+    "increments": true,
+    "timestamps": true,
+    "draftAndPublish": true
+  },
+  "attributes": {
+    "heading": {
+      "type": "text"
+    },
+    "description": {
+      "type": "richtext"
+    },
+    "is_active": {
+      "type": "boolean",
+      "default": true
+    },
+    "anual_price": {
+      "type": "float"
+    },
+    "charging_duration": {
+      "type": "enumeration",
+      "enum": [
+        "hourly",
+        "daily",
+        "monthly"
+      ]
+    },
+    "contact_number": {
+      "type": "text"
+    },
+    "status": {
+      "type": "boolean",
+      "default": true
+    },
+    "public_user": {
+      "model": "public-user"
+    },
+    "place": {
+      "model": "place"
+    },
+    "address": {
+      "type": "text"
+    },
+    "service_plan": {
+      "model": "service-plan"
+    },
+    "subscription_payments": {
+      "type": "enumeration",
+      "enum": [
+        "yearly",
+        "monthly"
+      ]
+    },
+    "monthly_price": {
+      "type": "float"
+    }
+  }
+}

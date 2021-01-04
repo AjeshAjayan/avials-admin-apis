@@ -1,0 +1,33 @@
+{
+  "kind": "collectionType",
+  "collectionName": "product_images",
+  "info": {
+    "name": "Product Images"
+  },
+  "options": {
+    "increments": true,
+    "timestamps": true,
+    "draftAndPublish": true
+  },
+  "attributes": {
+    "shop_product": {
+      "via": "product_images",
+      "model": "shop-products"
+    },
+    "images": {
+      "model": "file",
+      "via": "related",
+      "allowedTypes": [
+        "images",
+        "files",
+        "videos"
+      ],
+      "plugin": "upload",
+      "required": false
+    },
+    "status": {
+      "type": "boolean",
+      "default": true
+    }
+  }
+}

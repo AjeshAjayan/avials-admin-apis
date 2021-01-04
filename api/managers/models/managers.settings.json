@@ -1,0 +1,62 @@
+{
+  "kind": "collectionType",
+  "collectionName": "managers",
+  "info": {
+    "name": "Managers",
+    "description": ""
+  },
+  "options": {
+    "increments": true,
+    "timestamps": true,
+    "draftAndPublish": true
+  },
+  "attributes": {
+    "fullname": {
+      "type": "string"
+    },
+    "is_active": {
+      "type": "boolean",
+      "default": false
+    },
+    "place": {
+      "model": "place"
+    },
+    "is_terminated": {
+      "type": "boolean",
+      "default": false
+    },
+    "is_resigned": {
+      "type": "boolean",
+      "default": false
+    },
+    "date_of_birth": {
+      "type": "date"
+    },
+    "date_of_joining": {
+      "type": "datetime"
+    },
+    "is_verified": {
+      "type": "boolean",
+      "default": false
+    },
+    "users_permissions_user": {
+      "plugin": "users-permissions",
+      "model": "user"
+    },
+    "managers_assigned_places": {
+      "collection": "managers-assigned-places",
+      "via": "manager"
+    },
+    "profile_pic": {
+      "model": "file",
+      "via": "related",
+      "allowedTypes": [
+        "images",
+        "files",
+        "videos"
+      ],
+      "plugin": "upload",
+      "required": false
+    }
+  }
+}

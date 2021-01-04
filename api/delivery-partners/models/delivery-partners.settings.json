@@ -1,0 +1,43 @@
+{
+  "kind": "collectionType",
+  "collectionName": "delivery_partners",
+  "info": {
+    "name": "Delivery Partners"
+  },
+  "options": {
+    "increments": true,
+    "timestamps": true,
+    "draftAndPublish": true
+  },
+  "attributes": {
+    "fullname": {
+      "type": "string",
+      "required": true,
+      "maxLength": 30,
+      "minLength": 3
+    },
+    "shop_user": {
+      "model": "shop-user",
+      "via": "delivery_partners"
+    },
+    "place": {
+      "model": "place"
+    },
+    "address": {
+      "type": "text"
+    },
+    "contact_number": {
+      "type": "string"
+    },
+    "status": {
+      "type": "boolean",
+      "default": true
+    },
+    "qualification": {
+      "type": "text"
+    },
+    "manager": {
+      "model": "managers"
+    }
+  }
+}

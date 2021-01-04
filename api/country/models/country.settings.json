@@ -1,0 +1,28 @@
+{
+  "kind": "collectionType",
+  "collectionName": "countries",
+  "info": {
+    "name": "Country",
+    "description": ""
+  },
+  "options": {
+    "increments": true,
+    "timestamps": true,
+    "draftAndPublish": true
+  },
+  "attributes": {
+    "tiltle": {
+      "type": "string"
+    },
+    "status": {
+      "type": "boolean",
+      "default": true
+    },
+    "short_form": {
+      "type": "string"
+    },
+    "phone_code": {
+      "type": "string"
+    }
+  }
+}

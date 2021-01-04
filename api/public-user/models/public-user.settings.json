@@ -1,0 +1,48 @@
+{
+  "kind": "collectionType",
+  "collectionName": "public_users",
+  "info": {
+    "name": "Public User"
+  },
+  "options": {
+    "increments": true,
+    "timestamps": true,
+    "draftAndPublish": true
+  },
+  "attributes": {
+    "full_name": {
+      "type": "string"
+    },
+    "phone_number": {
+      "type": "string"
+    },
+    "place": {
+      "model": "place"
+    },
+    "date_of_join": {
+      "type": "datetime"
+    },
+    "users_permissions_user": {
+      "plugin": "users-permissions",
+      "model": "user"
+    },
+    "profile_pic": {
+      "model": "file",
+      "via": "related",
+      "allowedTypes": [
+        "images",
+        "files",
+        "videos"
+      ],
+      "plugin": "upload",
+      "required": false
+    },
+    "is_blocked": {
+      "type": "boolean",
+      "default": false
+    },
+    "last_active_date": {
+      "type": "datetime"
+    }
+  }
+}

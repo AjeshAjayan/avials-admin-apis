@@ -1,0 +1,40 @@
+{
+  "kind": "collectionType",
+  "collectionName": "product_sub_categories",
+  "info": {
+    "name": "Product Sub-category",
+    "description": ""
+  },
+  "options": {
+    "increments": true,
+    "timestamps": true,
+    "draftAndPublish": true
+  },
+  "attributes": {
+    "title": {
+      "type": "string"
+    },
+    "description": {
+      "type": "richtext"
+    },
+    "status": {
+      "type": "boolean",
+      "default": true
+    },
+    "product_category": {
+      "via": "product_sub_categories",
+      "model": "product-category"
+    },
+    "image": {
+      "model": "file",
+      "via": "related",
+      "allowedTypes": [
+        "images",
+        "files",
+        "videos"
+      ],
+      "plugin": "upload",
+      "required": false
+    }
+  }
+}

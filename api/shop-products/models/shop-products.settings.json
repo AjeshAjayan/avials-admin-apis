@@ -1,0 +1,58 @@
+{
+  "kind": "collectionType",
+  "collectionName": "shop_products",
+  "info": {
+    "name": "Shop Products",
+    "description": ""
+  },
+  "options": {
+    "increments": true,
+    "timestamps": true,
+    "draftAndPublish": true
+  },
+  "attributes": {
+    "name": {
+      "type": "string"
+    },
+    "description": {
+      "type": "richtext"
+    },
+    "product_sub_category": {
+      "model": "product-sub-category"
+    },
+    "added_date": {
+      "type": "datetime"
+    },
+    "shop_user": {
+      "model": "shop-user",
+      "via": "shop_products"
+    },
+    "product_images": {
+      "collection": "product-images",
+      "via": "shop_product"
+    },
+    "status": {
+      "type": "boolean",
+      "default": true
+    },
+    "price": {
+      "type": "float"
+    },
+    "stock": {
+      "type": "float"
+    },
+    "virtual_stock": {
+      "type": "float"
+    },
+    "is_wholesale": {
+      "type": "boolean",
+      "default": false
+    },
+    "discount": {
+      "type": "float",
+      "max": 90,
+      "min": 5,
+      "default": 0
+    }
+  }
+}

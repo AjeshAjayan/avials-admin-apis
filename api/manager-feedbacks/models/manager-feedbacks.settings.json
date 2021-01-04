@@ -1,0 +1,20 @@
+{
+  "kind": "collectionType",
+  "collectionName": "manager_feedbacks",
+  "info": {
+    "name": "Manager Feedbacks"
+  },
+  "options": {
+    "increments": true,
+    "timestamps": true,
+    "draftAndPublish": true
+  },
+  "attributes": {
+    "complaint": {
+      "type": "text"
+    },
+    "manager": {
+      "model": "managers"
+    }
+  }
+}

@@ -1,0 +1,73 @@
+{
+  "kind": "collectionType",
+  "collectionName": "shop_users",
+  "info": {
+    "name": "Shop User",
+    "description": ""
+  },
+  "options": {
+    "increments": true,
+    "timestamps": true,
+    "draftAndPublish": true
+  },
+  "attributes": {
+    "shop_name": {
+      "type": "string"
+    },
+    "shop_image": {
+      "model": "file",
+      "via": "related",
+      "allowedTypes": [
+        "images",
+        "files",
+        "videos"
+      ],
+      "plugin": "upload",
+      "required": false
+    },
+    "shop_cover_image": {
+      "model": "file",
+      "via": "related",
+      "allowedTypes": [
+        "images",
+        "files",
+        "videos"
+      ],
+      "plugin": "upload",
+      "required": false
+    },
+    "about_shop": {
+      "type": "richtext"
+    },
+    "date_of_join": {
+      "type": "datetime"
+    },
+    "is_closed": {
+      "type": "boolean"
+    },
+    "is_expired": {
+      "type": "boolean"
+    },
+    "users_permissions_user": {
+      "plugin": "users-permissions",
+      "model": "user"
+    },
+    "place": {
+      "model": "place"
+    },
+    "shop_products": {
+      "via": "shop_user",
+      "collection": "shop-products"
+    },
+    "latitude": {
+      "type": "string"
+    },
+    "longitude": {
+      "type": "string"
+    },
+    "delivery_partners": {
+      "via": "shop_user",
+      "collection": "delivery-partners"
+    }
+  }
+}

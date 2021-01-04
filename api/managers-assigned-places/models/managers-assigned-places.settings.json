@@ -1,0 +1,21 @@
+{
+  "kind": "collectionType",
+  "collectionName": "managers_assigned_places",
+  "info": {
+    "name": "Managers Assigned Places"
+  },
+  "options": {
+    "increments": true,
+    "timestamps": true,
+    "draftAndPublish": true
+  },
+  "attributes": {
+    "manager": {
+      "via": "managers_assigned_places",
+      "model": "managers"
+    },
+    "places": {
+      "collection": "place"
+    }
+  }
+}

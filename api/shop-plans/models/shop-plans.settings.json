@@ -1,0 +1,46 @@
+{
+  "kind": "collectionType",
+  "collectionName": "shop_plans",
+  "info": {
+    "name": "Shop Plans",
+    "description": ""
+  },
+  "options": {
+    "increments": true,
+    "timestamps": true,
+    "draftAndPublish": true
+  },
+  "attributes": {
+    "title": {
+      "type": "string"
+    },
+    "description": {
+      "type": "richtext"
+    },
+    "no_of_products": {
+      "type": "integer"
+    },
+    "no_of_images_per_product": {
+      "type": "integer"
+    },
+    "is_free_plan": {
+      "type": "boolean",
+      "default": false
+    },
+    "plan_cover_image": {
+      "model": "file",
+      "via": "related",
+      "allowedTypes": [
+        "images",
+        "files",
+        "videos"
+      ],
+      "plugin": "upload",
+      "required": false
+    },
+    "status": {
+      "type": "boolean",
+      "default": true
+    }
+  }
+}

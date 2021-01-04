@@ -1,0 +1,17 @@
+{
+  "kind": "collectionType",
+  "collectionName": "shops_feedbacks",
+  "info": {
+    "name": "Shops Feedback"
+  },
+  "options": {
+    "increments": true,
+    "timestamps": true,
+    "draftAndPublish": true
+  },
+  "attributes": {
+    "complaint": {
+      "type": "richtext"
+    }
+  }
+}

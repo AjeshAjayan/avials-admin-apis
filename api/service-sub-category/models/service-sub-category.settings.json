@@ -1,0 +1,39 @@
+{
+  "kind": "collectionType",
+  "collectionName": "service_sub_categories",
+  "info": {
+    "name": "Service sub-category"
+  },
+  "options": {
+    "increments": true,
+    "timestamps": true,
+    "draftAndPublish": true
+  },
+  "attributes": {
+    "title": {
+      "type": "string"
+    },
+    "description": {
+      "type": "richtext"
+    },
+    "images": {
+      "model": "file",
+      "via": "related",
+      "allowedTypes": [
+        "images",
+        "files",
+        "videos"
+      ],
+      "plugin": "upload",
+      "required": false
+    },
+    "service_categories": {
+      "collection": "service-category",
+      "via": "service_sub_category"
+    },
+    "status": {
+      "type": "boolean",
+      "default": true
+    }
+  }
+}

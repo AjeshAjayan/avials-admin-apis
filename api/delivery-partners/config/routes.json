@@ -1,0 +1,52 @@
+{
+  "routes": [
+    {
+      "method": "GET",
+      "path": "/delivery-partners",
+      "handler": "delivery-partners.find",
+      "config": {
+        "policies": []
+      }
+    },
+    {
+      "method": "GET",
+      "path": "/delivery-partners/count",
+      "handler": "delivery-partners.count",
+      "config": {
+        "policies": []
+      }
+    },
+    {
+      "method": "GET",
+      "path": "/delivery-partners/:id",
+      "handler": "delivery-partners.findOne",
+      "config": {
+        "policies": []
+      }
+    },
+    {
+      "method": "POST",
+      "path": "/delivery-partners",
+      "handler": "delivery-partners.create",
+      "config": {
+        "policies": []
+      }
+    },
+    {
+      "method": "PUT",
+      "path": "/delivery-partners/:id",
+      "handler": "delivery-partners.update",
+      "config": {
+        "policies": []
+      }
+    },
+    {
+      "method": "DELETE",
+      "path": "/delivery-partners/:id",
+      "handler": "delivery-partners.delete",
+      "config": {
+        "policies": []
+      }
+    }
+  ]
+}
