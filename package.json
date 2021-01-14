@@ -11,6 +11,8 @@
   },
   "devDependencies": {},
   "dependencies": {
+    "fcm-node": "^1.5.2",
+    "firebase-admin": "^9.4.2",
     "knex": "<0.20.0",
     "pg": "^8.5.1",
     "strapi": "3.4.1",

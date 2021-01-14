@@ -1,0 +1,12 @@
+{
+    "routes": [
+        {
+            "method": "POST",
+            "path": "/greetings",
+            "handler": "notification.send_greetings",
+            "config": {
+              "policies": []
+            }
+        }
+    ]
+}
