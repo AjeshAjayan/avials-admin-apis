@@ -47,6 +47,14 @@
       "config": {
         "policies": []
       }
+    },
+    {
+      "method": "POST",
+      "path": "/managers/create-user",
+      "handler": "managers.createUser",
+      "config": {
+        "policies": []
+      }
     }
   ]
 }

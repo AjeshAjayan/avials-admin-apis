@@ -12,7 +12,8 @@
   },
   "attributes": {
     "fullname": {
-      "type": "string"
+      "type": "string",
+      "required": true
     },
     "is_active": {
       "type": "boolean",
@@ -57,6 +58,22 @@
       ],
       "plugin": "upload",
       "required": false
+    },
+    "users_permissions_role": {
+      "plugin": "users-permissions",
+      "model": "role"
+    },
+    "email": {
+      "type": "email",
+      "required": true,
+      "unique": true
+    },
+    "password": {
+      "type": "string",
+      "private": true,
+      "required": false,
+      "maxLength": 30,
+      "minLength": 6
     }
   }
 }
