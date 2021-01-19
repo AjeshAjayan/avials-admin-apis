@@ -14,7 +14,11 @@ module.exports = {
             const userData = {
                 username: data.email,
                 email: data.email,
-                password: password
+                password: await strapi.admin.services.auth.hashPassword(password),
+                role: data.users_permissions_role,
+                confirmed: true,
+                provider: "local",
+                blocked: false,
             };
             await sendPasswordThruMail(data.email, password);
             const user = await strapi.query("user", "users-permissions").create(userData)

@@ -587,9 +587,6 @@
               "email": {
                 "type": "string"
               },
-              "password": {
-                "type": "string"
-              },
               "published_at": {
                 "type": "string"
               },

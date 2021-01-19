@@ -67,13 +67,6 @@
       "type": "email",
       "required": true,
       "unique": true
-    },
-    "password": {
-      "type": "string",
-      "private": true,
-      "required": false,
-      "maxLength": 30,
-      "minLength": 6
     }
   }
 }
