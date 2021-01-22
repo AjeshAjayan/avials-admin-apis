@@ -1,12 +1,12 @@
 {
   "paths": {
-    "/product-images": {
+    "/public-products": {
       "get": {
         "deprecated": false,
-        "description": "Find all the product-images's records",
+        "description": "",
         "responses": {
           "200": {
-            "description": "Retrieve product-images document(s)",
+            "description": "response",
             "content": {
               "application/json": {
                 "schema": {
@@ -52,7 +52,7 @@
         },
         "summary": "",
         "tags": [
-          "Product-images"
+          "Public-product"
         ],
         "parameters": [
           {
@@ -195,10 +195,10 @@
       },
       "post": {
         "deprecated": false,
-        "description": "Create a new product-images record",
+        "description": "Create a new record",
         "responses": {
           "200": {
-            "description": "Retrieve product-images document(s)",
+            "description": "response",
             "content": {
               "application/json": {
                 "schema": {
@@ -244,7 +244,7 @@
         },
         "summary": "",
         "tags": [
-          "Product-images"
+          "Public-product"
         ],
         "requestBody": {
           "description": "",
@@ -252,20 +252,20 @@
           "content": {
             "application/json": {
               "schema": {
-                "$ref": "#/components/schemas/NewProduct-images"
+                "$ref": "#/components/schemas/NewPublic-product"
               }
             }
           }
         }
       }
     },
-    "/product-images/count": {
+    "/public-products/count": {
       "get": {
         "deprecated": false,
-        "description": "Retrieve the numver of product-images documents",
+        "description": "",
         "responses": {
           "200": {
-            "description": "Retrieve product-images document(s)",
+            "description": "response",
             "content": {
               "application/json": {
                 "schema": {
@@ -311,18 +311,18 @@
         },
         "summary": "",
         "tags": [
-          "Product-images"
+          "Public-product"
         ],
         "parameters": []
       }
     },
-    "/product-images/{id}": {
+    "/public-products/{id}": {
       "get": {
         "deprecated": false,
-        "description": "Find one product-images record",
+        "description": "",
         "responses": {
           "200": {
-            "description": "Retrieve product-images document(s)",
+            "description": "response",
             "content": {
               "application/json": {
                 "schema": {
@@ -368,7 +368,7 @@
         },
         "summary": "",
         "tags": [
-          "Product-images"
+          "Public-product"
         ],
         "parameters": [
           {
@@ -385,10 +385,10 @@
       },
       "put": {
         "deprecated": false,
-        "description": "Update a single product-images record",
+        "description": "Update a record",
         "responses": {
           "200": {
-            "description": "Retrieve product-images document(s)",
+            "description": "response",
             "content": {
               "application/json": {
                 "schema": {
@@ -434,7 +434,7 @@
         },
         "summary": "",
         "tags": [
-          "Product-images"
+          "Public-product"
         ],
         "requestBody": {
           "description": "",
@@ -442,7 +442,7 @@
           "content": {
             "application/json": {
               "schema": {
-                "$ref": "#/components/schemas/NewProduct-images"
+                "$ref": "#/components/schemas/NewPublic-product"
               }
             }
           }
@@ -462,10 +462,10 @@
       },
       "delete": {
         "deprecated": false,
-        "description": "Delete a single product-images record",
+        "description": "Delete a record",
         "responses": {
           "200": {
-            "description": "deletes a single product-images based on the ID supplied",
+            "description": "deletes a single record based on the ID supplied",
             "content": {
               "application/json": {
                 "schema": {
@@ -508,7 +508,7 @@
         },
         "summary": "",
         "tags": [
-          "Product-images"
+          "Public-product"
         ],
         "parameters": [
           {
@@ -527,121 +527,59 @@
   },
   "components": {
     "schemas": {
-      "Product-images": {
+      "Public-product": {
         "required": [
-          "id"
+          "id",
+          "name",
+          "description"
         ],
         "properties": {
           "id": {
             "type": "string"
           },
-          "images": {
-            "required": [
-              "id",
-              "name",
-              "hash",
-              "mime",
-              "size",
-              "url",
-              "provider"
-            ],
-            "properties": {
-              "id": {
-                "type": "string"
-              },
-              "name": {
-                "type": "string"
-              },
-              "alternativeText": {
-                "type": "string"
-              },
-              "caption": {
-                "type": "string"
-              },
-              "width": {
-                "type": "integer"
-              },
-              "height": {
-                "type": "integer"
-              },
-              "formats": {
-                "type": "object"
-              },
-              "hash": {
-                "type": "string"
-              },
-              "ext": {
-                "type": "string"
-              },
-              "mime": {
-                "type": "string"
-              },
-              "size": {
-                "type": "number"
-              },
-              "url": {
-                "type": "string"
-              },
-              "previewUrl": {
-                "type": "string"
-              },
-              "provider": {
-                "type": "string"
-              },
-              "provider_metadata": {
-                "type": "object"
-              },
-              "related": {
-                "type": "string"
-              },
-              "created_by": {
-                "type": "string"
-              },
-              "updated_by": {
-                "type": "string"
-              }
-            }
+          "name": {
+            "type": "string",
+            "maxLength": 50,
+            "minLength": 3
+          },
+          "description": {
+            "type": "string"
           },
           "status": {
             "type": "boolean",
             "default": true
           },
-          "public_product": {
+          "public_user": {
             "required": [
-              "id",
-              "name",
-              "description"
+              "id"
             ],
             "properties": {
               "id": {
                 "type": "string"
               },
-              "name": {
+              "full_name": {
                 "type": "string"
               },
-              "description": {
+              "phone_number": {
                 "type": "string"
               },
-              "status": {
+              "place": {
+                "type": "string"
+              },
+              "date_of_join": {
+                "type": "string"
+              },
+              "users_permissions_user": {
+                "type": "string"
+              },
+              "profile_pic": {
+                "type": "string"
+              },
+              "is_blocked": {
                 "type": "boolean"
               },
-              "public_user": {
+              "last_active_date": {
                 "type": "string"
-              },
-              "virtual_stock": {
-                "type": "integer"
-              },
-              "actual_stock": {
-                "type": "integer"
-              },
-              "show_as": {
-                "type": "string"
-              },
-              "product_images": {
-                "type": "array",
-                "items": {
-                  "type": "string"
-                }
               },
               "published_at": {
                 "type": "string"
@@ -654,20 +592,97 @@
               }
             }
           },
+          "virtual_stock": {
+            "type": "integer"
+          },
+          "actual_stock": {
+            "type": "integer"
+          },
+          "show_as": {
+            "type": "string",
+            "enum": [
+              "Ads",
+              "Product",
+              "Service"
+            ]
+          },
+          "product_images": {
+            "type": "array",
+            "items": {
+              "required": [
+                "id"
+              ],
+              "properties": {
+                "id": {
+                  "type": "string"
+                },
+                "images": {
+                  "type": "string"
+                },
+                "status": {
+                  "type": "boolean"
+                },
+                "public_product": {
+                  "type": "string"
+                },
+                "published_at": {
+                  "type": "string"
+                },
+                "created_by": {
+                  "type": "string"
+                },
+                "updated_by": {
+                  "type": "string"
+                }
+              }
+            }
+          },
           "published_at": {
             "type": "string",
             "format": "date-time"
           }
         }
       },
-      "NewProduct-images": {
+      "NewPublic-product": {
+        "required": [
+          "name",
+          "description"
+        ],
         "properties": {
+          "name": {
+            "type": "string",
+            "maxLength": 50,
+            "minLength": 3
+          },
+          "description": {
+            "type": "string"
+          },
           "status": {
             "type": "boolean",
             "default": true
           },
-          "public_product": {
+          "public_user": {
             "type": "string"
+          },
+          "virtual_stock": {
+            "type": "integer"
+          },
+          "actual_stock": {
+            "type": "integer"
+          },
+          "show_as": {
+            "type": "string",
+            "enum": [
+              "Ads",
+              "Product",
+              "Service"
+            ]
+          },
+          "product_images": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            }
           },
           "published_at": {
             "type": "string",

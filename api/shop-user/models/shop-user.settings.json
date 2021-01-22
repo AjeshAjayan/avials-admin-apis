@@ -55,19 +55,18 @@
     "place": {
       "model": "place"
     },
-    "shop_products": {
-      "via": "shop_user",
-      "collection": "shop-products"
-    },
     "latitude": {
       "type": "string"
     },
     "longitude": {
       "type": "string"
     },
-    "delivery_partners": {
-      "via": "shop_user",
-      "collection": "delivery-partners"
+    "is_verified": {
+      "type": "boolean",
+      "default": false
+    },
+    "shop_plan": {
+      "model": "shop-plans"
     }
   }
 }

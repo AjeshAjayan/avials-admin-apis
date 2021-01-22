@@ -10,10 +10,6 @@
     "draftAndPublish": true
   },
   "attributes": {
-    "manager": {
-      "via": "managers_assigned_places",
-      "model": "managers"
-    },
     "places": {
       "collection": "place"
     }

@@ -16,10 +16,6 @@
       "maxLength": 30,
       "minLength": 3
     },
-    "shop_user": {
-      "model": "shop-user",
-      "via": "delivery_partners"
-    },
     "place": {
       "model": "place"
     },

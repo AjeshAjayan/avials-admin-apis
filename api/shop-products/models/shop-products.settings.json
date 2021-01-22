@@ -23,14 +23,6 @@
     "added_date": {
       "type": "datetime"
     },
-    "shop_user": {
-      "model": "shop-user",
-      "via": "shop_products"
-    },
-    "product_images": {
-      "collection": "product-images",
-      "via": "shop_product"
-    },
     "status": {
       "type": "boolean",
       "default": true
@@ -51,8 +43,20 @@
     "discount": {
       "type": "float",
       "max": 90,
-      "min": 5,
+      "min": 0,
       "default": 0
+    },
+    "product_images": {
+      "collection": "file",
+      "via": "related",
+      "allowedTypes": [
+        "images"
+      ],
+      "plugin": "upload",
+      "required": true
+    },
+    "shop_user": {
+      "model": "shop-user"
     }
   }
 }

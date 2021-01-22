@@ -1,19 +1,18 @@
 {
   "paths": {
-    "/product-images": {
+    "/orders": {
       "get": {
         "deprecated": false,
-        "description": "Find all the product-images's records",
+        "description": "Find all the orders's records",
         "responses": {
           "200": {
-            "description": "Retrieve product-images document(s)",
+            "description": "Retrieve orders document(s)",
             "content": {
               "application/json": {
                 "schema": {
-                  "properties": {
-                    "foo": {
-                      "type": "string"
-                    }
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/Orders"
                   }
                 }
               }
@@ -52,7 +51,7 @@
         },
         "summary": "",
         "tags": [
-          "Product-images"
+          "Orders"
         ],
         "parameters": [
           {
@@ -195,18 +194,14 @@
       },
       "post": {
         "deprecated": false,
-        "description": "Create a new product-images record",
+        "description": "Create a new orders record",
         "responses": {
           "200": {
-            "description": "Retrieve product-images document(s)",
+            "description": "Retrieve orders document(s)",
             "content": {
               "application/json": {
                 "schema": {
-                  "properties": {
-                    "foo": {
-                      "type": "string"
-                    }
-                  }
+                  "$ref": "#/components/schemas/Orders"
                 }
               }
             }
@@ -244,7 +239,7 @@
         },
         "summary": "",
         "tags": [
-          "Product-images"
+          "Orders"
         ],
         "requestBody": {
           "description": "",
@@ -252,26 +247,26 @@
           "content": {
             "application/json": {
               "schema": {
-                "$ref": "#/components/schemas/NewProduct-images"
+                "$ref": "#/components/schemas/NewOrders"
               }
             }
           }
         }
       }
     },
-    "/product-images/count": {
+    "/orders/count": {
       "get": {
         "deprecated": false,
-        "description": "Retrieve the numver of product-images documents",
+        "description": "Retrieve the numver of orders documents",
         "responses": {
           "200": {
-            "description": "Retrieve product-images document(s)",
+            "description": "Retrieve orders document(s)",
             "content": {
               "application/json": {
                 "schema": {
                   "properties": {
-                    "foo": {
-                      "type": "string"
+                    "count": {
+                      "type": "integer"
                     }
                   }
                 }
@@ -311,26 +306,22 @@
         },
         "summary": "",
         "tags": [
-          "Product-images"
+          "Orders"
         ],
         "parameters": []
       }
     },
-    "/product-images/{id}": {
+    "/orders/{id}": {
       "get": {
         "deprecated": false,
-        "description": "Find one product-images record",
+        "description": "Find one orders record",
         "responses": {
           "200": {
-            "description": "Retrieve product-images document(s)",
+            "description": "Retrieve orders document(s)",
             "content": {
               "application/json": {
                 "schema": {
-                  "properties": {
-                    "foo": {
-                      "type": "string"
-                    }
-                  }
+                  "$ref": "#/components/schemas/Orders"
                 }
               }
             }
@@ -368,7 +359,7 @@
         },
         "summary": "",
         "tags": [
-          "Product-images"
+          "Orders"
         ],
         "parameters": [
           {
@@ -385,18 +376,14 @@
       },
       "put": {
         "deprecated": false,
-        "description": "Update a single product-images record",
+        "description": "Update a single orders record",
         "responses": {
           "200": {
-            "description": "Retrieve product-images document(s)",
+            "description": "Retrieve orders document(s)",
             "content": {
               "application/json": {
                 "schema": {
-                  "properties": {
-                    "foo": {
-                      "type": "string"
-                    }
-                  }
+                  "$ref": "#/components/schemas/Orders"
                 }
               }
             }
@@ -434,7 +421,7 @@
         },
         "summary": "",
         "tags": [
-          "Product-images"
+          "Orders"
         ],
         "requestBody": {
           "description": "",
@@ -442,7 +429,7 @@
           "content": {
             "application/json": {
               "schema": {
-                "$ref": "#/components/schemas/NewProduct-images"
+                "$ref": "#/components/schemas/NewOrders"
               }
             }
           }
@@ -462,10 +449,10 @@
       },
       "delete": {
         "deprecated": false,
-        "description": "Delete a single product-images record",
+        "description": "Delete a single orders record",
         "responses": {
           "200": {
-            "description": "deletes a single product-images based on the ID supplied",
+            "description": "deletes a single orders based on the ID supplied",
             "content": {
               "application/json": {
                 "schema": {
@@ -508,7 +495,7 @@
         },
         "summary": "",
         "tags": [
-          "Product-images"
+          "Orders"
         ],
         "parameters": [
           {
@@ -527,7 +514,7 @@
   },
   "components": {
     "schemas": {
-      "Product-images": {
+      "Orders": {
         "required": [
           "id"
         ],
@@ -535,63 +522,39 @@
           "id": {
             "type": "string"
           },
-          "images": {
+          "public_user": {
             "required": [
-              "id",
-              "name",
-              "hash",
-              "mime",
-              "size",
-              "url",
-              "provider"
+              "id"
             ],
             "properties": {
               "id": {
                 "type": "string"
               },
-              "name": {
+              "full_name": {
                 "type": "string"
               },
-              "alternativeText": {
+              "phone_number": {
                 "type": "string"
               },
-              "caption": {
+              "place": {
                 "type": "string"
               },
-              "width": {
-                "type": "integer"
-              },
-              "height": {
-                "type": "integer"
-              },
-              "formats": {
-                "type": "object"
-              },
-              "hash": {
+              "date_of_join": {
                 "type": "string"
               },
-              "ext": {
+              "users_permissions_user": {
                 "type": "string"
               },
-              "mime": {
+              "profile_pic": {
                 "type": "string"
               },
-              "size": {
-                "type": "number"
+              "is_blocked": {
+                "type": "boolean"
               },
-              "url": {
+              "last_active_date": {
                 "type": "string"
               },
-              "previewUrl": {
-                "type": "string"
-              },
-              "provider": {
-                "type": "string"
-              },
-              "provider_metadata": {
-                "type": "object"
-              },
-              "related": {
+              "published_at": {
                 "type": "string"
               },
               "created_by": {
@@ -602,11 +565,19 @@
               }
             }
           },
-          "status": {
+          "is_delivered": {
             "type": "boolean",
-            "default": true
+            "default": false
           },
-          "public_product": {
+          "is_processed": {
+            "type": "boolean",
+            "default": false
+          },
+          "is_dispatched": {
+            "type": "boolean",
+            "default": false
+          },
+          "public_products": {
             "required": [
               "id",
               "name",
@@ -654,19 +625,161 @@
               }
             }
           },
+          "is_shop_products": {
+            "type": "boolean",
+            "default": false
+          },
+          "shop_user": {
+            "required": [
+              "id"
+            ],
+            "properties": {
+              "id": {
+                "type": "string"
+              },
+              "shop_name": {
+                "type": "string"
+              },
+              "shop_image": {
+                "type": "string"
+              },
+              "shop_cover_image": {
+                "type": "string"
+              },
+              "about_shop": {
+                "type": "string"
+              },
+              "date_of_join": {
+                "type": "string"
+              },
+              "is_closed": {
+                "type": "boolean"
+              },
+              "is_expired": {
+                "type": "boolean"
+              },
+              "users_permissions_user": {
+                "type": "string"
+              },
+              "place": {
+                "type": "string"
+              },
+              "latitude": {
+                "type": "string"
+              },
+              "longitude": {
+                "type": "string"
+              },
+              "is_verified": {
+                "type": "boolean"
+              },
+              "shop_plan": {
+                "type": "string"
+              },
+              "published_at": {
+                "type": "string"
+              },
+              "created_by": {
+                "type": "string"
+              },
+              "updated_by": {
+                "type": "string"
+              }
+            }
+          },
+          "shop_products": {
+            "required": [
+              "id",
+              "product_images"
+            ],
+            "properties": {
+              "id": {
+                "type": "string"
+              },
+              "name": {
+                "type": "string"
+              },
+              "description": {
+                "type": "string"
+              },
+              "product_sub_category": {
+                "type": "string"
+              },
+              "added_date": {
+                "type": "string"
+              },
+              "status": {
+                "type": "boolean"
+              },
+              "price": {
+                "type": "number"
+              },
+              "stock": {
+                "type": "number"
+              },
+              "virtual_stock": {
+                "type": "number"
+              },
+              "is_wholesale": {
+                "type": "boolean"
+              },
+              "discount": {
+                "type": "number"
+              },
+              "product_images": {
+                "type": "array",
+                "items": {
+                  "type": "string"
+                }
+              },
+              "shop_user": {
+                "type": "string"
+              },
+              "published_at": {
+                "type": "string"
+              },
+              "created_by": {
+                "type": "string"
+              },
+              "updated_by": {
+                "type": "string"
+              }
+            }
+          },
           "published_at": {
             "type": "string",
             "format": "date-time"
           }
         }
       },
-      "NewProduct-images": {
+      "NewOrders": {
         "properties": {
-          "status": {
-            "type": "boolean",
-            "default": true
+          "public_user": {
+            "type": "string"
           },
-          "public_product": {
+          "is_delivered": {
+            "type": "boolean",
+            "default": false
+          },
+          "is_processed": {
+            "type": "boolean",
+            "default": false
+          },
+          "is_dispatched": {
+            "type": "boolean",
+            "default": false
+          },
+          "public_products": {
+            "type": "string"
+          },
+          "is_shop_products": {
+            "type": "boolean",
+            "default": false
+          },
+          "shop_user": {
+            "type": "string"
+          },
+          "shop_products": {
             "type": "string"
           },
           "published_at": {
@@ -683,5 +796,9 @@
       }
     }
   },
-  "tags": []
+  "tags": [
+    {
+      "name": "Orders"
+    }
+  ]
 }

@@ -1,0 +1,50 @@
+{
+  "kind": "collectionType",
+  "collectionName": "public_products",
+  "info": {
+    "name": "Public Product",
+    "description": ""
+  },
+  "options": {
+    "increments": true,
+    "timestamps": true,
+    "draftAndPublish": true
+  },
+  "attributes": {
+    "name": {
+      "type": "string",
+      "required": true,
+      "maxLength": 50,
+      "minLength": 3
+    },
+    "description": {
+      "type": "richtext",
+      "required": true
+    },
+    "status": {
+      "type": "boolean",
+      "default": true
+    },
+    "public_user": {
+      "model": "public-user"
+    },
+    "virtual_stock": {
+      "type": "integer"
+    },
+    "actual_stock": {
+      "type": "integer"
+    },
+    "show_as": {
+      "type": "enumeration",
+      "enum": [
+        "Ads",
+        "Product",
+        "Service"
+      ]
+    },
+    "product_images": {
+      "collection": "product-images",
+      "via": "public_product"
+    }
+  }
+}

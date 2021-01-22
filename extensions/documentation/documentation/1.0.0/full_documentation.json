@@ -14,7 +14,7 @@
       "name": "Apache 2.0",
       "url": "https://www.apache.org/licenses/LICENSE-2.0.html"
     },
-    "x-generation-date": "01/19/2021 10:09:35 PM"
+    "x-generation-date": "01/22/2021 10:49:02 PM"
   },
   "x-strapi-config": {
     "path": "/documentation",
@@ -3150,6 +3150,74 @@
         ]
       }
     },
+    "/managers/user/{userId}": {
+      "get": {
+        "deprecated": false,
+        "description": "",
+        "responses": {
+          "200": {
+            "description": "Retrieve managers document(s)",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "properties": {
+                    "foo": {
+                      "type": "string"
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "403": {
+            "description": "Forbidden",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Error"
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "Not found",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Error"
+                }
+              }
+            }
+          },
+          "default": {
+            "description": "unexpected error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Error"
+                }
+              }
+            }
+          }
+        },
+        "summary": "",
+        "tags": [
+          "Managers"
+        ],
+        "parameters": [
+          {
+            "name": "userId",
+            "in": "path",
+            "description": "",
+            "deprecated": false,
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ]
+      }
+    },
     "/greetings": {
       "post": {
         "deprecated": false,
@@ -3219,6 +3287,517 @@
             }
           }
         }
+      }
+    },
+    "/orders": {
+      "get": {
+        "deprecated": false,
+        "description": "Find all the orders's records",
+        "responses": {
+          "200": {
+            "description": "Retrieve orders document(s)",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/Orders"
+                  }
+                }
+              }
+            }
+          },
+          "403": {
+            "description": "Forbidden",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Error"
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "Not found",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Error"
+                }
+              }
+            }
+          },
+          "default": {
+            "description": "unexpected error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Error"
+                }
+              }
+            }
+          }
+        },
+        "summary": "",
+        "tags": [
+          "Orders"
+        ],
+        "parameters": [
+          {
+            "name": "_limit",
+            "in": "query",
+            "required": false,
+            "description": "Maximum number of results possible",
+            "schema": {
+              "type": "integer"
+            },
+            "deprecated": false
+          },
+          {
+            "name": "_sort",
+            "in": "query",
+            "required": false,
+            "description": "Sort according to a specific field.",
+            "schema": {
+              "type": "string"
+            },
+            "deprecated": false
+          },
+          {
+            "name": "_start",
+            "in": "query",
+            "required": false,
+            "description": "Skip a specific number of entries (especially useful for pagination)",
+            "schema": {
+              "type": "integer"
+            },
+            "deprecated": false
+          },
+          {
+            "name": "=",
+            "in": "query",
+            "required": false,
+            "description": "Get entries that matches exactly your input",
+            "schema": {
+              "type": "string"
+            },
+            "deprecated": false
+          },
+          {
+            "name": "_ne",
+            "in": "query",
+            "required": false,
+            "description": "Get records that are not equals to something",
+            "schema": {
+              "type": "string"
+            },
+            "deprecated": false
+          },
+          {
+            "name": "_lt",
+            "in": "query",
+            "required": false,
+            "description": "Get record that are lower than a value",
+            "schema": {
+              "type": "string"
+            },
+            "deprecated": false
+          },
+          {
+            "name": "_lte",
+            "in": "query",
+            "required": false,
+            "description": "Get records that are lower than or equal to a value",
+            "schema": {
+              "type": "string"
+            },
+            "deprecated": false
+          },
+          {
+            "name": "_gt",
+            "in": "query",
+            "required": false,
+            "description": "Get records that are greater than a value",
+            "schema": {
+              "type": "string"
+            },
+            "deprecated": false
+          },
+          {
+            "name": "_gte",
+            "in": "query",
+            "required": false,
+            "description": "Get records that are greater than  or equal a value",
+            "schema": {
+              "type": "string"
+            },
+            "deprecated": false
+          },
+          {
+            "name": "_contains",
+            "in": "query",
+            "required": false,
+            "description": "Get records that contains a value",
+            "schema": {
+              "type": "string"
+            },
+            "deprecated": false
+          },
+          {
+            "name": "_containss",
+            "in": "query",
+            "required": false,
+            "description": "Get records that contains (case sensitive) a value",
+            "schema": {
+              "type": "string"
+            },
+            "deprecated": false
+          },
+          {
+            "name": "_in",
+            "in": "query",
+            "required": false,
+            "description": "Get records that matches any value in the array of values",
+            "schema": {
+              "type": "array",
+              "items": {
+                "type": "string"
+              }
+            },
+            "deprecated": false
+          },
+          {
+            "name": "_nin",
+            "in": "query",
+            "required": false,
+            "description": "Get records that doesn't match any value in the array of values",
+            "schema": {
+              "type": "array",
+              "items": {
+                "type": "string"
+              }
+            },
+            "deprecated": false
+          }
+        ]
+      },
+      "post": {
+        "deprecated": false,
+        "description": "Create a new orders record",
+        "responses": {
+          "200": {
+            "description": "Retrieve orders document(s)",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Orders"
+                }
+              }
+            }
+          },
+          "403": {
+            "description": "Forbidden",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Error"
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "Not found",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Error"
+                }
+              }
+            }
+          },
+          "default": {
+            "description": "unexpected error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Error"
+                }
+              }
+            }
+          }
+        },
+        "summary": "",
+        "tags": [
+          "Orders"
+        ],
+        "requestBody": {
+          "description": "",
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/NewOrders"
+              }
+            }
+          }
+        }
+      }
+    },
+    "/orders/count": {
+      "get": {
+        "deprecated": false,
+        "description": "Retrieve the numver of orders documents",
+        "responses": {
+          "200": {
+            "description": "Retrieve orders document(s)",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "properties": {
+                    "count": {
+                      "type": "integer"
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "403": {
+            "description": "Forbidden",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Error"
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "Not found",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Error"
+                }
+              }
+            }
+          },
+          "default": {
+            "description": "unexpected error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Error"
+                }
+              }
+            }
+          }
+        },
+        "summary": "",
+        "tags": [
+          "Orders"
+        ],
+        "parameters": []
+      }
+    },
+    "/orders/{id}": {
+      "get": {
+        "deprecated": false,
+        "description": "Find one orders record",
+        "responses": {
+          "200": {
+            "description": "Retrieve orders document(s)",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Orders"
+                }
+              }
+            }
+          },
+          "403": {
+            "description": "Forbidden",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Error"
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "Not found",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Error"
+                }
+              }
+            }
+          },
+          "default": {
+            "description": "unexpected error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Error"
+                }
+              }
+            }
+          }
+        },
+        "summary": "",
+        "tags": [
+          "Orders"
+        ],
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "description": "",
+            "deprecated": false,
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ]
+      },
+      "put": {
+        "deprecated": false,
+        "description": "Update a single orders record",
+        "responses": {
+          "200": {
+            "description": "Retrieve orders document(s)",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Orders"
+                }
+              }
+            }
+          },
+          "403": {
+            "description": "Forbidden",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Error"
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "Not found",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Error"
+                }
+              }
+            }
+          },
+          "default": {
+            "description": "unexpected error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Error"
+                }
+              }
+            }
+          }
+        },
+        "summary": "",
+        "tags": [
+          "Orders"
+        ],
+        "requestBody": {
+          "description": "",
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/NewOrders"
+              }
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "description": "",
+            "deprecated": false,
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ]
+      },
+      "delete": {
+        "deprecated": false,
+        "description": "Delete a single orders record",
+        "responses": {
+          "200": {
+            "description": "deletes a single orders based on the ID supplied",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "integer",
+                  "format": "int64"
+                }
+              }
+            }
+          },
+          "403": {
+            "description": "Forbidden",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Error"
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "Not found",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Error"
+                }
+              }
+            }
+          },
+          "default": {
+            "description": "unexpected error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Error"
+                }
+              }
+            }
+          }
+        },
+        "summary": "",
+        "tags": [
+          "Orders"
+        ],
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "description": "",
+            "deprecated": false,
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ]
       }
     },
     "/places": {
@@ -5289,6 +5868,530 @@
         "summary": "",
         "tags": [
           "Product-sub-category"
+        ],
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "description": "",
+            "deprecated": false,
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ]
+      }
+    },
+    "/public-products": {
+      "get": {
+        "deprecated": false,
+        "description": "",
+        "responses": {
+          "200": {
+            "description": "response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "properties": {
+                    "foo": {
+                      "type": "string"
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "403": {
+            "description": "Forbidden",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Error"
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "Not found",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Error"
+                }
+              }
+            }
+          },
+          "default": {
+            "description": "unexpected error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Error"
+                }
+              }
+            }
+          }
+        },
+        "summary": "",
+        "tags": [
+          "Public-product"
+        ],
+        "parameters": [
+          {
+            "name": "_limit",
+            "in": "query",
+            "required": false,
+            "description": "Maximum number of results possible",
+            "schema": {
+              "type": "integer"
+            },
+            "deprecated": false
+          },
+          {
+            "name": "_sort",
+            "in": "query",
+            "required": false,
+            "description": "Sort according to a specific field.",
+            "schema": {
+              "type": "string"
+            },
+            "deprecated": false
+          },
+          {
+            "name": "_start",
+            "in": "query",
+            "required": false,
+            "description": "Skip a specific number of entries (especially useful for pagination)",
+            "schema": {
+              "type": "integer"
+            },
+            "deprecated": false
+          },
+          {
+            "name": "=",
+            "in": "query",
+            "required": false,
+            "description": "Get entries that matches exactly your input",
+            "schema": {
+              "type": "string"
+            },
+            "deprecated": false
+          },
+          {
+            "name": "_ne",
+            "in": "query",
+            "required": false,
+            "description": "Get records that are not equals to something",
+            "schema": {
+              "type": "string"
+            },
+            "deprecated": false
+          },
+          {
+            "name": "_lt",
+            "in": "query",
+            "required": false,
+            "description": "Get record that are lower than a value",
+            "schema": {
+              "type": "string"
+            },
+            "deprecated": false
+          },
+          {
+            "name": "_lte",
+            "in": "query",
+            "required": false,
+            "description": "Get records that are lower than or equal to a value",
+            "schema": {
+              "type": "string"
+            },
+            "deprecated": false
+          },
+          {
+            "name": "_gt",
+            "in": "query",
+            "required": false,
+            "description": "Get records that are greater than a value",
+            "schema": {
+              "type": "string"
+            },
+            "deprecated": false
+          },
+          {
+            "name": "_gte",
+            "in": "query",
+            "required": false,
+            "description": "Get records that are greater than  or equal a value",
+            "schema": {
+              "type": "string"
+            },
+            "deprecated": false
+          },
+          {
+            "name": "_contains",
+            "in": "query",
+            "required": false,
+            "description": "Get records that contains a value",
+            "schema": {
+              "type": "string"
+            },
+            "deprecated": false
+          },
+          {
+            "name": "_containss",
+            "in": "query",
+            "required": false,
+            "description": "Get records that contains (case sensitive) a value",
+            "schema": {
+              "type": "string"
+            },
+            "deprecated": false
+          },
+          {
+            "name": "_in",
+            "in": "query",
+            "required": false,
+            "description": "Get records that matches any value in the array of values",
+            "schema": {
+              "type": "array",
+              "items": {
+                "type": "string"
+              }
+            },
+            "deprecated": false
+          },
+          {
+            "name": "_nin",
+            "in": "query",
+            "required": false,
+            "description": "Get records that doesn't match any value in the array of values",
+            "schema": {
+              "type": "array",
+              "items": {
+                "type": "string"
+              }
+            },
+            "deprecated": false
+          }
+        ]
+      },
+      "post": {
+        "deprecated": false,
+        "description": "Create a new record",
+        "responses": {
+          "200": {
+            "description": "response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "properties": {
+                    "foo": {
+                      "type": "string"
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "403": {
+            "description": "Forbidden",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Error"
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "Not found",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Error"
+                }
+              }
+            }
+          },
+          "default": {
+            "description": "unexpected error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Error"
+                }
+              }
+            }
+          }
+        },
+        "summary": "",
+        "tags": [
+          "Public-product"
+        ],
+        "requestBody": {
+          "description": "",
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/NewPublic-product"
+              }
+            }
+          }
+        }
+      }
+    },
+    "/public-products/count": {
+      "get": {
+        "deprecated": false,
+        "description": "",
+        "responses": {
+          "200": {
+            "description": "response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "properties": {
+                    "foo": {
+                      "type": "string"
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "403": {
+            "description": "Forbidden",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Error"
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "Not found",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Error"
+                }
+              }
+            }
+          },
+          "default": {
+            "description": "unexpected error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Error"
+                }
+              }
+            }
+          }
+        },
+        "summary": "",
+        "tags": [
+          "Public-product"
+        ],
+        "parameters": []
+      }
+    },
+    "/public-products/{id}": {
+      "get": {
+        "deprecated": false,
+        "description": "",
+        "responses": {
+          "200": {
+            "description": "response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "properties": {
+                    "foo": {
+                      "type": "string"
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "403": {
+            "description": "Forbidden",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Error"
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "Not found",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Error"
+                }
+              }
+            }
+          },
+          "default": {
+            "description": "unexpected error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Error"
+                }
+              }
+            }
+          }
+        },
+        "summary": "",
+        "tags": [
+          "Public-product"
+        ],
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "description": "",
+            "deprecated": false,
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ]
+      },
+      "put": {
+        "deprecated": false,
+        "description": "Update a record",
+        "responses": {
+          "200": {
+            "description": "response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "properties": {
+                    "foo": {
+                      "type": "string"
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "403": {
+            "description": "Forbidden",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Error"
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "Not found",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Error"
+                }
+              }
+            }
+          },
+          "default": {
+            "description": "unexpected error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Error"
+                }
+              }
+            }
+          }
+        },
+        "summary": "",
+        "tags": [
+          "Public-product"
+        ],
+        "requestBody": {
+          "description": "",
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/NewPublic-product"
+              }
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "description": "",
+            "deprecated": false,
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ]
+      },
+      "delete": {
+        "deprecated": false,
+        "description": "Delete a record",
+        "responses": {
+          "200": {
+            "description": "deletes a single record based on the ID supplied",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "integer",
+                  "format": "int64"
+                }
+              }
+            }
+          },
+          "403": {
+            "description": "Forbidden",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Error"
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "Not found",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Error"
+                }
+              }
+            }
+          },
+          "default": {
+            "description": "unexpected error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Error"
+                }
+              }
+            }
+          }
+        },
+        "summary": "",
+        "tags": [
+          "Public-product"
         ],
         "parameters": [
           {
@@ -12687,70 +13790,6 @@
             "maxLength": 30,
             "minLength": 3
           },
-          "shop_user": {
-            "required": [
-              "id"
-            ],
-            "properties": {
-              "id": {
-                "type": "string"
-              },
-              "shop_name": {
-                "type": "string"
-              },
-              "shop_image": {
-                "type": "string"
-              },
-              "shop_cover_image": {
-                "type": "string"
-              },
-              "about_shop": {
-                "type": "string"
-              },
-              "date_of_join": {
-                "type": "string"
-              },
-              "is_closed": {
-                "type": "boolean"
-              },
-              "is_expired": {
-                "type": "boolean"
-              },
-              "users_permissions_user": {
-                "type": "string"
-              },
-              "place": {
-                "type": "string"
-              },
-              "shop_products": {
-                "type": "array",
-                "items": {
-                  "type": "string"
-                }
-              },
-              "latitude": {
-                "type": "string"
-              },
-              "longitude": {
-                "type": "string"
-              },
-              "delivery_partners": {
-                "type": "array",
-                "items": {
-                  "type": "string"
-                }
-              },
-              "published_at": {
-                "type": "string"
-              },
-              "created_by": {
-                "type": "string"
-              },
-              "updated_by": {
-                "type": "string"
-              }
-            }
-          },
           "place": {
             "required": [
               "id"
@@ -12770,6 +13809,9 @@
               },
               "pincode": {
                 "type": "integer"
+              },
+              "manager": {
+                "type": "string"
               },
               "published_at": {
                 "type": "string"
@@ -12832,7 +13874,7 @@
               "users_permissions_user": {
                 "type": "string"
               },
-              "managers_assigned_places": {
+              "places": {
                 "type": "array",
                 "items": {
                   "type": "string"
@@ -12873,9 +13915,6 @@
             "type": "string",
             "maxLength": 30,
             "minLength": 3
-          },
-          "shop_user": {
-            "type": "string"
           },
           "place": {
             "type": "string"
@@ -13029,7 +14068,7 @@
               "users_permissions_user": {
                 "type": "string"
               },
-              "managers_assigned_places": {
+              "places": {
                 "type": "array",
                 "items": {
                   "type": "string"
@@ -13089,69 +14128,6 @@
           "id": {
             "type": "string"
           },
-          "manager": {
-            "required": [
-              "id",
-              "fullname",
-              "email"
-            ],
-            "properties": {
-              "id": {
-                "type": "string"
-              },
-              "fullname": {
-                "type": "string"
-              },
-              "is_active": {
-                "type": "boolean"
-              },
-              "place": {
-                "type": "string"
-              },
-              "is_terminated": {
-                "type": "boolean"
-              },
-              "is_resigned": {
-                "type": "boolean"
-              },
-              "date_of_birth": {
-                "type": "string"
-              },
-              "date_of_joining": {
-                "type": "string"
-              },
-              "is_verified": {
-                "type": "boolean"
-              },
-              "users_permissions_user": {
-                "type": "string"
-              },
-              "managers_assigned_places": {
-                "type": "array",
-                "items": {
-                  "type": "string"
-                }
-              },
-              "profile_pic": {
-                "type": "string"
-              },
-              "users_permissions_role": {
-                "type": "string"
-              },
-              "email": {
-                "type": "string"
-              },
-              "published_at": {
-                "type": "string"
-              },
-              "created_by": {
-                "type": "string"
-              },
-              "updated_by": {
-                "type": "string"
-              }
-            }
-          },
           "places": {
             "required": [
               "id"
@@ -13172,6 +14148,9 @@
               "pincode": {
                 "type": "integer"
               },
+              "manager": {
+                "type": "string"
+              },
               "published_at": {
                 "type": "string"
               },
@@ -13191,9 +14170,6 @@
       },
       "NewManagers-assigned-places": {
         "properties": {
-          "manager": {
-            "type": "string"
-          },
           "places": {
             "type": "string"
           },
@@ -13245,6 +14221,9 @@
               },
               "pincode": {
                 "type": "integer"
+              },
+              "manager": {
+                "type": "string"
               },
               "published_at": {
                 "type": "string"
@@ -13322,7 +14301,7 @@
               }
             }
           },
-          "managers_assigned_places": {
+          "places": {
             "type": "array",
             "items": {
               "required": [
@@ -13332,10 +14311,19 @@
                 "id": {
                   "type": "string"
                 },
-                "manager": {
+                "title": {
                   "type": "string"
                 },
-                "places": {
+                "status": {
+                  "type": "boolean"
+                },
+                "district": {
+                  "type": "string"
+                },
+                "pincode": {
+                  "type": "integer"
+                },
+                "manager": {
                   "type": "string"
                 },
                 "published_at": {
@@ -13503,7 +14491,7 @@
           "users_permissions_user": {
             "type": "string"
           },
-          "managers_assigned_places": {
+          "places": {
             "type": "array",
             "items": {
               "type": "string"
@@ -13513,6 +14501,286 @@
             "type": "string"
           },
           "email": {
+            "type": "string"
+          },
+          "published_at": {
+            "type": "string",
+            "format": "date-time"
+          },
+          "created_by": {
+            "type": "string"
+          },
+          "updated_by": {
+            "type": "string"
+          }
+        }
+      },
+      "Orders": {
+        "required": [
+          "id"
+        ],
+        "properties": {
+          "id": {
+            "type": "string"
+          },
+          "public_user": {
+            "required": [
+              "id"
+            ],
+            "properties": {
+              "id": {
+                "type": "string"
+              },
+              "full_name": {
+                "type": "string"
+              },
+              "phone_number": {
+                "type": "string"
+              },
+              "place": {
+                "type": "string"
+              },
+              "date_of_join": {
+                "type": "string"
+              },
+              "users_permissions_user": {
+                "type": "string"
+              },
+              "profile_pic": {
+                "type": "string"
+              },
+              "is_blocked": {
+                "type": "boolean"
+              },
+              "last_active_date": {
+                "type": "string"
+              },
+              "published_at": {
+                "type": "string"
+              },
+              "created_by": {
+                "type": "string"
+              },
+              "updated_by": {
+                "type": "string"
+              }
+            }
+          },
+          "is_delivered": {
+            "type": "boolean",
+            "default": false
+          },
+          "is_processed": {
+            "type": "boolean",
+            "default": false
+          },
+          "is_dispatched": {
+            "type": "boolean",
+            "default": false
+          },
+          "public_products": {
+            "required": [
+              "id",
+              "name",
+              "description"
+            ],
+            "properties": {
+              "id": {
+                "type": "string"
+              },
+              "name": {
+                "type": "string"
+              },
+              "description": {
+                "type": "string"
+              },
+              "status": {
+                "type": "boolean"
+              },
+              "public_user": {
+                "type": "string"
+              },
+              "virtual_stock": {
+                "type": "integer"
+              },
+              "actual_stock": {
+                "type": "integer"
+              },
+              "show_as": {
+                "type": "string"
+              },
+              "product_images": {
+                "type": "array",
+                "items": {
+                  "type": "string"
+                }
+              },
+              "published_at": {
+                "type": "string"
+              },
+              "created_by": {
+                "type": "string"
+              },
+              "updated_by": {
+                "type": "string"
+              }
+            }
+          },
+          "is_shop_products": {
+            "type": "boolean",
+            "default": false
+          },
+          "shop_user": {
+            "required": [
+              "id"
+            ],
+            "properties": {
+              "id": {
+                "type": "string"
+              },
+              "shop_name": {
+                "type": "string"
+              },
+              "shop_image": {
+                "type": "string"
+              },
+              "shop_cover_image": {
+                "type": "string"
+              },
+              "about_shop": {
+                "type": "string"
+              },
+              "date_of_join": {
+                "type": "string"
+              },
+              "is_closed": {
+                "type": "boolean"
+              },
+              "is_expired": {
+                "type": "boolean"
+              },
+              "users_permissions_user": {
+                "type": "string"
+              },
+              "place": {
+                "type": "string"
+              },
+              "latitude": {
+                "type": "string"
+              },
+              "longitude": {
+                "type": "string"
+              },
+              "is_verified": {
+                "type": "boolean"
+              },
+              "shop_plan": {
+                "type": "string"
+              },
+              "published_at": {
+                "type": "string"
+              },
+              "created_by": {
+                "type": "string"
+              },
+              "updated_by": {
+                "type": "string"
+              }
+            }
+          },
+          "shop_products": {
+            "required": [
+              "id",
+              "product_images"
+            ],
+            "properties": {
+              "id": {
+                "type": "string"
+              },
+              "name": {
+                "type": "string"
+              },
+              "description": {
+                "type": "string"
+              },
+              "product_sub_category": {
+                "type": "string"
+              },
+              "added_date": {
+                "type": "string"
+              },
+              "status": {
+                "type": "boolean"
+              },
+              "price": {
+                "type": "number"
+              },
+              "stock": {
+                "type": "number"
+              },
+              "virtual_stock": {
+                "type": "number"
+              },
+              "is_wholesale": {
+                "type": "boolean"
+              },
+              "discount": {
+                "type": "number"
+              },
+              "product_images": {
+                "type": "array",
+                "items": {
+                  "type": "string"
+                }
+              },
+              "shop_user": {
+                "type": "string"
+              },
+              "published_at": {
+                "type": "string"
+              },
+              "created_by": {
+                "type": "string"
+              },
+              "updated_by": {
+                "type": "string"
+              }
+            }
+          },
+          "published_at": {
+            "type": "string",
+            "format": "date-time"
+          }
+        }
+      },
+      "NewOrders": {
+        "properties": {
+          "public_user": {
+            "type": "string"
+          },
+          "is_delivered": {
+            "type": "boolean",
+            "default": false
+          },
+          "is_processed": {
+            "type": "boolean",
+            "default": false
+          },
+          "is_dispatched": {
+            "type": "boolean",
+            "default": false
+          },
+          "public_products": {
+            "type": "string"
+          },
+          "is_shop_products": {
+            "type": "boolean",
+            "default": false
+          },
+          "shop_user": {
+            "type": "string"
+          },
+          "shop_products": {
             "type": "string"
           },
           "published_at": {
@@ -13573,6 +14841,69 @@
           "pincode": {
             "type": "integer"
           },
+          "manager": {
+            "required": [
+              "id",
+              "fullname",
+              "email"
+            ],
+            "properties": {
+              "id": {
+                "type": "string"
+              },
+              "fullname": {
+                "type": "string"
+              },
+              "is_active": {
+                "type": "boolean"
+              },
+              "place": {
+                "type": "string"
+              },
+              "is_terminated": {
+                "type": "boolean"
+              },
+              "is_resigned": {
+                "type": "boolean"
+              },
+              "date_of_birth": {
+                "type": "string"
+              },
+              "date_of_joining": {
+                "type": "string"
+              },
+              "is_verified": {
+                "type": "boolean"
+              },
+              "users_permissions_user": {
+                "type": "string"
+              },
+              "places": {
+                "type": "array",
+                "items": {
+                  "type": "string"
+                }
+              },
+              "profile_pic": {
+                "type": "string"
+              },
+              "users_permissions_role": {
+                "type": "string"
+              },
+              "email": {
+                "type": "string"
+              },
+              "published_at": {
+                "type": "string"
+              },
+              "created_by": {
+                "type": "string"
+              },
+              "updated_by": {
+                "type": "string"
+              }
+            }
+          },
           "published_at": {
             "type": "string",
             "format": "date-time"
@@ -13593,6 +14924,9 @@
           },
           "pincode": {
             "type": "integer"
+          },
+          "manager": {
+            "type": "string"
           },
           "published_at": {
             "type": "string",
@@ -13775,64 +15109,6 @@
           "id": {
             "type": "string"
           },
-          "shop_product": {
-            "required": [
-              "id"
-            ],
-            "properties": {
-              "id": {
-                "type": "string"
-              },
-              "name": {
-                "type": "string"
-              },
-              "description": {
-                "type": "string"
-              },
-              "product_sub_category": {
-                "type": "string"
-              },
-              "added_date": {
-                "type": "string"
-              },
-              "shop_user": {
-                "type": "string"
-              },
-              "product_images": {
-                "type": "array",
-                "items": {
-                  "type": "string"
-                }
-              },
-              "status": {
-                "type": "boolean"
-              },
-              "price": {
-                "type": "number"
-              },
-              "stock": {
-                "type": "number"
-              },
-              "virtual_stock": {
-                "type": "number"
-              },
-              "is_wholesale": {
-                "type": "boolean"
-              },
-              "discount": {
-                "type": "number"
-              },
-              "published_at": {
-                "type": "string"
-              },
-              "created_by": {
-                "type": "string"
-              },
-              "updated_by": {
-                "type": "string"
-              }
-            }
-          },
           "images": {
             "required": [
               "id",
@@ -13904,6 +15180,54 @@
             "type": "boolean",
             "default": true
           },
+          "public_product": {
+            "required": [
+              "id",
+              "name",
+              "description"
+            ],
+            "properties": {
+              "id": {
+                "type": "string"
+              },
+              "name": {
+                "type": "string"
+              },
+              "description": {
+                "type": "string"
+              },
+              "status": {
+                "type": "boolean"
+              },
+              "public_user": {
+                "type": "string"
+              },
+              "virtual_stock": {
+                "type": "integer"
+              },
+              "actual_stock": {
+                "type": "integer"
+              },
+              "show_as": {
+                "type": "string"
+              },
+              "product_images": {
+                "type": "array",
+                "items": {
+                  "type": "string"
+                }
+              },
+              "published_at": {
+                "type": "string"
+              },
+              "created_by": {
+                "type": "string"
+              },
+              "updated_by": {
+                "type": "string"
+              }
+            }
+          },
           "published_at": {
             "type": "string",
             "format": "date-time"
@@ -13912,12 +15236,12 @@
       },
       "NewProduct-images": {
         "properties": {
-          "shop_product": {
-            "type": "string"
-          },
           "status": {
             "type": "boolean",
             "default": true
+          },
+          "public_product": {
+            "type": "string"
           },
           "published_at": {
             "type": "string",
@@ -14089,6 +15413,175 @@
           }
         }
       },
+      "Public-product": {
+        "required": [
+          "id",
+          "name",
+          "description"
+        ],
+        "properties": {
+          "id": {
+            "type": "string"
+          },
+          "name": {
+            "type": "string",
+            "maxLength": 50,
+            "minLength": 3
+          },
+          "description": {
+            "type": "string"
+          },
+          "status": {
+            "type": "boolean",
+            "default": true
+          },
+          "public_user": {
+            "required": [
+              "id"
+            ],
+            "properties": {
+              "id": {
+                "type": "string"
+              },
+              "full_name": {
+                "type": "string"
+              },
+              "phone_number": {
+                "type": "string"
+              },
+              "place": {
+                "type": "string"
+              },
+              "date_of_join": {
+                "type": "string"
+              },
+              "users_permissions_user": {
+                "type": "string"
+              },
+              "profile_pic": {
+                "type": "string"
+              },
+              "is_blocked": {
+                "type": "boolean"
+              },
+              "last_active_date": {
+                "type": "string"
+              },
+              "published_at": {
+                "type": "string"
+              },
+              "created_by": {
+                "type": "string"
+              },
+              "updated_by": {
+                "type": "string"
+              }
+            }
+          },
+          "virtual_stock": {
+            "type": "integer"
+          },
+          "actual_stock": {
+            "type": "integer"
+          },
+          "show_as": {
+            "type": "string",
+            "enum": [
+              "Ads",
+              "Product",
+              "Service"
+            ]
+          },
+          "product_images": {
+            "type": "array",
+            "items": {
+              "required": [
+                "id"
+              ],
+              "properties": {
+                "id": {
+                  "type": "string"
+                },
+                "images": {
+                  "type": "string"
+                },
+                "status": {
+                  "type": "boolean"
+                },
+                "public_product": {
+                  "type": "string"
+                },
+                "published_at": {
+                  "type": "string"
+                },
+                "created_by": {
+                  "type": "string"
+                },
+                "updated_by": {
+                  "type": "string"
+                }
+              }
+            }
+          },
+          "published_at": {
+            "type": "string",
+            "format": "date-time"
+          }
+        }
+      },
+      "NewPublic-product": {
+        "required": [
+          "name",
+          "description"
+        ],
+        "properties": {
+          "name": {
+            "type": "string",
+            "maxLength": 50,
+            "minLength": 3
+          },
+          "description": {
+            "type": "string"
+          },
+          "status": {
+            "type": "boolean",
+            "default": true
+          },
+          "public_user": {
+            "type": "string"
+          },
+          "virtual_stock": {
+            "type": "integer"
+          },
+          "actual_stock": {
+            "type": "integer"
+          },
+          "show_as": {
+            "type": "string",
+            "enum": [
+              "Ads",
+              "Product",
+              "Service"
+            ]
+          },
+          "product_images": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            }
+          },
+          "published_at": {
+            "type": "string",
+            "format": "date-time"
+          },
+          "created_by": {
+            "type": "string"
+          },
+          "updated_by": {
+            "type": "string"
+          }
+        }
+      },
       "Public-user": {
         "required": [
           "id"
@@ -14122,6 +15615,9 @@
               },
               "pincode": {
                 "type": "integer"
+              },
+              "manager": {
+                "type": "string"
               },
               "published_at": {
                 "type": "string"
@@ -14825,6 +16321,9 @@
               "pincode": {
                 "type": "integer"
               },
+              "manager": {
+                "type": "string"
+              },
               "published_at": {
                 "type": "string"
               },
@@ -15087,7 +16586,8 @@
       },
       "Shop-products": {
         "required": [
-          "id"
+          "id",
+          "product_images"
         ],
         "properties": {
           "id": {
@@ -15137,6 +16637,97 @@
             "type": "string",
             "format": "date-time"
           },
+          "status": {
+            "type": "boolean",
+            "default": true
+          },
+          "price": {
+            "type": "number"
+          },
+          "stock": {
+            "type": "number"
+          },
+          "virtual_stock": {
+            "type": "number"
+          },
+          "is_wholesale": {
+            "type": "boolean",
+            "default": false
+          },
+          "discount": {
+            "type": "number",
+            "default": 0
+          },
+          "product_images": {
+            "type": "array",
+            "items": {
+              "required": [
+                "id",
+                "name",
+                "hash",
+                "mime",
+                "size",
+                "url",
+                "provider"
+              ],
+              "properties": {
+                "id": {
+                  "type": "string"
+                },
+                "name": {
+                  "type": "string"
+                },
+                "alternativeText": {
+                  "type": "string"
+                },
+                "caption": {
+                  "type": "string"
+                },
+                "width": {
+                  "type": "integer"
+                },
+                "height": {
+                  "type": "integer"
+                },
+                "formats": {
+                  "type": "object"
+                },
+                "hash": {
+                  "type": "string"
+                },
+                "ext": {
+                  "type": "string"
+                },
+                "mime": {
+                  "type": "string"
+                },
+                "size": {
+                  "type": "number"
+                },
+                "url": {
+                  "type": "string"
+                },
+                "previewUrl": {
+                  "type": "string"
+                },
+                "provider": {
+                  "type": "string"
+                },
+                "provider_metadata": {
+                  "type": "object"
+                },
+                "related": {
+                  "type": "string"
+                },
+                "created_by": {
+                  "type": "string"
+                },
+                "updated_by": {
+                  "type": "string"
+                }
+              }
+            }
+          },
           "shop_user": {
             "required": [
               "id"
@@ -15172,23 +16763,17 @@
               "place": {
                 "type": "string"
               },
-              "shop_products": {
-                "type": "array",
-                "items": {
-                  "type": "string"
-                }
-              },
               "latitude": {
                 "type": "string"
               },
               "longitude": {
                 "type": "string"
               },
-              "delivery_partners": {
-                "type": "array",
-                "items": {
-                  "type": "string"
-                }
+              "is_verified": {
+                "type": "boolean"
+              },
+              "shop_plan": {
+                "type": "string"
               },
               "published_at": {
                 "type": "string"
@@ -15200,58 +16785,6 @@
                 "type": "string"
               }
             }
-          },
-          "product_images": {
-            "type": "array",
-            "items": {
-              "required": [
-                "id"
-              ],
-              "properties": {
-                "id": {
-                  "type": "string"
-                },
-                "shop_product": {
-                  "type": "string"
-                },
-                "images": {
-                  "type": "string"
-                },
-                "status": {
-                  "type": "boolean"
-                },
-                "published_at": {
-                  "type": "string"
-                },
-                "created_by": {
-                  "type": "string"
-                },
-                "updated_by": {
-                  "type": "string"
-                }
-              }
-            }
-          },
-          "status": {
-            "type": "boolean",
-            "default": true
-          },
-          "price": {
-            "type": "number"
-          },
-          "stock": {
-            "type": "number"
-          },
-          "virtual_stock": {
-            "type": "number"
-          },
-          "is_wholesale": {
-            "type": "boolean",
-            "default": false
-          },
-          "discount": {
-            "type": "number",
-            "default": 0
           },
           "published_at": {
             "type": "string",
@@ -15274,15 +16807,6 @@
             "type": "string",
             "format": "date-time"
           },
-          "shop_user": {
-            "type": "string"
-          },
-          "product_images": {
-            "type": "array",
-            "items": {
-              "type": "string"
-            }
-          },
           "status": {
             "type": "boolean",
             "default": true
@@ -15303,6 +16827,9 @@
           "discount": {
             "type": "number",
             "default": 0
+          },
+          "shop_user": {
+            "type": "string"
           },
           "published_at": {
             "type": "string",
@@ -15539,6 +17066,9 @@
               "pincode": {
                 "type": "integer"
               },
+              "manager": {
+                "type": "string"
+              },
               "published_at": {
                 "type": "string"
               },
@@ -15550,117 +17080,53 @@
               }
             }
           },
-          "shop_products": {
-            "type": "array",
-            "items": {
-              "required": [
-                "id"
-              ],
-              "properties": {
-                "id": {
-                  "type": "string"
-                },
-                "name": {
-                  "type": "string"
-                },
-                "description": {
-                  "type": "string"
-                },
-                "product_sub_category": {
-                  "type": "string"
-                },
-                "added_date": {
-                  "type": "string"
-                },
-                "shop_user": {
-                  "type": "string"
-                },
-                "product_images": {
-                  "type": "array",
-                  "items": {
-                    "type": "string"
-                  }
-                },
-                "status": {
-                  "type": "boolean"
-                },
-                "price": {
-                  "type": "number"
-                },
-                "stock": {
-                  "type": "number"
-                },
-                "virtual_stock": {
-                  "type": "number"
-                },
-                "is_wholesale": {
-                  "type": "boolean"
-                },
-                "discount": {
-                  "type": "number"
-                },
-                "published_at": {
-                  "type": "string"
-                },
-                "created_by": {
-                  "type": "string"
-                },
-                "updated_by": {
-                  "type": "string"
-                }
-              }
-            }
-          },
           "latitude": {
             "type": "string"
           },
           "longitude": {
             "type": "string"
           },
-          "delivery_partners": {
-            "type": "array",
-            "items": {
-              "required": [
-                "id",
-                "fullname"
-              ],
-              "properties": {
-                "id": {
-                  "type": "string"
-                },
-                "fullname": {
-                  "type": "string"
-                },
-                "shop_user": {
-                  "type": "string"
-                },
-                "place": {
-                  "type": "string"
-                },
-                "address": {
-                  "type": "string"
-                },
-                "contact_number": {
-                  "type": "string"
-                },
-                "status": {
-                  "type": "boolean"
-                },
-                "qualification": {
-                  "type": "string"
-                },
-                "manager": {
-                  "type": "string"
-                },
-                "published_at": {
-                  "type": "string"
-                },
-                "created_by": {
-                  "type": "string"
-                },
-                "updated_by": {
-                  "type": "string"
-                }
+          "is_verified": {
+            "type": "boolean",
+            "default": false
+          },
+          "shop_plan": {
+            "required": [
+              "id"
+            ],
+            "properties": {
+              "id": {
+                "type": "string"
+              },
+              "title": {
+                "type": "string"
+              },
+              "description": {
+                "type": "string"
+              },
+              "no_of_products": {
+                "type": "integer"
+              },
+              "no_of_images_per_product": {
+                "type": "integer"
+              },
+              "is_free_plan": {
+                "type": "boolean"
+              },
+              "plan_cover_image": {
+                "type": "string"
+              },
+              "status": {
+                "type": "boolean"
+              },
+              "published_at": {
+                "type": "string"
+              },
+              "created_by": {
+                "type": "string"
+              },
+              "updated_by": {
+                "type": "string"
               }
             }
           },
@@ -15694,23 +17160,18 @@
           "place": {
             "type": "string"
           },
-          "shop_products": {
-            "type": "array",
-            "items": {
-              "type": "string"
-            }
-          },
           "latitude": {
             "type": "string"
           },
           "longitude": {
             "type": "string"
           },
-          "delivery_partners": {
-            "type": "array",
-            "items": {
-              "type": "string"
-            }
+          "is_verified": {
+            "type": "boolean",
+            "default": false
+          },
+          "shop_plan": {
+            "type": "string"
           },
           "published_at": {
             "type": "string",
@@ -16131,6 +17592,9 @@
     },
     {
       "name": "Notification"
+    },
+    {
+      "name": "Orders"
     },
     {
       "name": "Place"

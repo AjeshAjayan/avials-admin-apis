@@ -20,4 +20,9 @@ module.exports = {
         }
         return sanitizeEntity(entity, { model: strapi.models.managers });
     },
+
+    async getByUserId(ctx) {
+        const response = await strapi.services.managers.find({ users_permissions_user: ctx.params.userId });
+        return sanitizeEntity(response, { model: strapi.models.managers })
+    }
 };

@@ -750,6 +750,9 @@
               "pincode": {
                 "type": "integer"
               },
+              "manager": {
+                "type": "string"
+              },
               "published_at": {
                 "type": "string"
               },
@@ -761,117 +764,53 @@
               }
             }
           },
-          "shop_products": {
-            "type": "array",
-            "items": {
-              "required": [
-                "id"
-              ],
-              "properties": {
-                "id": {
-                  "type": "string"
-                },
-                "name": {
-                  "type": "string"
-                },
-                "description": {
-                  "type": "string"
-                },
-                "product_sub_category": {
-                  "type": "string"
-                },
-                "added_date": {
-                  "type": "string"
-                },
-                "shop_user": {
-                  "type": "string"
-                },
-                "product_images": {
-                  "type": "array",
-                  "items": {
-                    "type": "string"
-                  }
-                },
-                "status": {
-                  "type": "boolean"
-                },
-                "price": {
-                  "type": "number"
-                },
-                "stock": {
-                  "type": "number"
-                },
-                "virtual_stock": {
-                  "type": "number"
-                },
-                "is_wholesale": {
-                  "type": "boolean"
-                },
-                "discount": {
-                  "type": "number"
-                },
-                "published_at": {
-                  "type": "string"
-                },
-                "created_by": {
-                  "type": "string"
-                },
-                "updated_by": {
-                  "type": "string"
-                }
-              }
-            }
-          },
           "latitude": {
             "type": "string"
           },
           "longitude": {
             "type": "string"
           },
-          "delivery_partners": {
-            "type": "array",
-            "items": {
-              "required": [
-                "id",
-                "fullname"
-              ],
-              "properties": {
-                "id": {
-                  "type": "string"
-                },
-                "fullname": {
-                  "type": "string"
-                },
-                "shop_user": {
-                  "type": "string"
-                },
-                "place": {
-                  "type": "string"
-                },
-                "address": {
-                  "type": "string"
-                },
-                "contact_number": {
-                  "type": "string"
-                },
-                "status": {
-                  "type": "boolean"
-                },
-                "qualification": {
-                  "type": "string"
-                },
-                "manager": {
-                  "type": "string"
-                },
-                "published_at": {
-                  "type": "string"
-                },
-                "created_by": {
-                  "type": "string"
-                },
-                "updated_by": {
-                  "type": "string"
-                }
+          "is_verified": {
+            "type": "boolean",
+            "default": false
+          },
+          "shop_plan": {
+            "required": [
+              "id"
+            ],
+            "properties": {
+              "id": {
+                "type": "string"
+              },
+              "title": {
+                "type": "string"
+              },
+              "description": {
+                "type": "string"
+              },
+              "no_of_products": {
+                "type": "integer"
+              },
+              "no_of_images_per_product": {
+                "type": "integer"
+              },
+              "is_free_plan": {
+                "type": "boolean"
+              },
+              "plan_cover_image": {
+                "type": "string"
+              },
+              "status": {
+                "type": "boolean"
+              },
+              "published_at": {
+                "type": "string"
+              },
+              "created_by": {
+                "type": "string"
+              },
+              "updated_by": {
+                "type": "string"
               }
             }
           },
@@ -905,23 +844,18 @@
           "place": {
             "type": "string"
           },
-          "shop_products": {
-            "type": "array",
-            "items": {
-              "type": "string"
-            }
-          },
           "latitude": {
             "type": "string"
           },
           "longitude": {
             "type": "string"
           },
-          "delivery_partners": {
-            "type": "array",
-            "items": {
-              "type": "string"
-            }
+          "is_verified": {
+            "type": "boolean",
+            "default": false
+          },
+          "shop_plan": {
+            "type": "string"
           },
           "published_at": {
             "type": "string",

@@ -575,7 +575,7 @@
               "users_permissions_user": {
                 "type": "string"
               },
-              "managers_assigned_places": {
+              "places": {
                 "type": "array",
                 "items": {
                   "type": "string"

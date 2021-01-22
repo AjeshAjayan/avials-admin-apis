@@ -25,6 +25,14 @@
       }
     },
     {
+      "method": "GET",
+      "path": "/managers/user/:userId",
+      "handler": "managers.getByUserId",
+      "config": {
+        "policies": []
+      }
+    },
+    {
       "method": "POST",
       "path": "/managers",
       "handler": "managers.create",

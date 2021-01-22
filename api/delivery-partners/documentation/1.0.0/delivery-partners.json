@@ -541,70 +541,6 @@
             "maxLength": 30,
             "minLength": 3
           },
-          "shop_user": {
-            "required": [
-              "id"
-            ],
-            "properties": {
-              "id": {
-                "type": "string"
-              },
-              "shop_name": {
-                "type": "string"
-              },
-              "shop_image": {
-                "type": "string"
-              },
-              "shop_cover_image": {
-                "type": "string"
-              },
-              "about_shop": {
-                "type": "string"
-              },
-              "date_of_join": {
-                "type": "string"
-              },
-              "is_closed": {
-                "type": "boolean"
-              },
-              "is_expired": {
-                "type": "boolean"
-              },
-              "users_permissions_user": {
-                "type": "string"
-              },
-              "place": {
-                "type": "string"
-              },
-              "shop_products": {
-                "type": "array",
-                "items": {
-                  "type": "string"
-                }
-              },
-              "latitude": {
-                "type": "string"
-              },
-              "longitude": {
-                "type": "string"
-              },
-              "delivery_partners": {
-                "type": "array",
-                "items": {
-                  "type": "string"
-                }
-              },
-              "published_at": {
-                "type": "string"
-              },
-              "created_by": {
-                "type": "string"
-              },
-              "updated_by": {
-                "type": "string"
-              }
-            }
-          },
           "place": {
             "required": [
               "id"
@@ -624,6 +560,9 @@
               },
               "pincode": {
                 "type": "integer"
+              },
+              "manager": {
+                "type": "string"
               },
               "published_at": {
                 "type": "string"
@@ -686,7 +625,7 @@
               "users_permissions_user": {
                 "type": "string"
               },
-              "managers_assigned_places": {
+              "places": {
                 "type": "array",
                 "items": {
                   "type": "string"
@@ -727,9 +666,6 @@
             "type": "string",
             "maxLength": 30,
             "minLength": 3
-          },
-          "shop_user": {
-            "type": "string"
           },
           "place": {
             "type": "string"

@@ -23,6 +23,10 @@
     },
     "pincode": {
       "type": "biginteger"
+    },
+    "manager": {
+      "via": "places",
+      "model": "managers"
     }
   }
 }

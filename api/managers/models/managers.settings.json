@@ -44,8 +44,8 @@
       "plugin": "users-permissions",
       "model": "user"
     },
-    "managers_assigned_places": {
-      "collection": "managers-assigned-places",
+    "places": {
+      "collection": "place",
       "via": "manager"
     },
     "profile_pic": {

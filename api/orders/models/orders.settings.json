@@ -1,0 +1,43 @@
+{
+  "kind": "collectionType",
+  "collectionName": "orders",
+  "info": {
+    "name": "Orders",
+    "description": ""
+  },
+  "options": {
+    "increments": true,
+    "timestamps": true,
+    "draftAndPublish": true
+  },
+  "attributes": {
+    "public_user": {
+      "model": "public-user"
+    },
+    "is_delivered": {
+      "type": "boolean",
+      "default": false
+    },
+    "is_processed": {
+      "type": "boolean",
+      "default": false
+    },
+    "is_dispatched": {
+      "type": "boolean",
+      "default": false
+    },
+    "public_products": {
+      "collection": "public-product"
+    },
+    "is_shop_products": {
+      "type": "boolean",
+      "default": false
+    },
+    "shop_user": {
+      "model": "shop-user"
+    },
+    "shop_products": {
+      "collection": "shop-products"
+    }
+  }
+}

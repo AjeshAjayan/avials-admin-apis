@@ -529,7 +529,8 @@
     "schemas": {
       "Shop-products": {
         "required": [
-          "id"
+          "id",
+          "product_images"
         ],
         "properties": {
           "id": {
@@ -579,6 +580,97 @@
             "type": "string",
             "format": "date-time"
           },
+          "status": {
+            "type": "boolean",
+            "default": true
+          },
+          "price": {
+            "type": "number"
+          },
+          "stock": {
+            "type": "number"
+          },
+          "virtual_stock": {
+            "type": "number"
+          },
+          "is_wholesale": {
+            "type": "boolean",
+            "default": false
+          },
+          "discount": {
+            "type": "number",
+            "default": 0
+          },
+          "product_images": {
+            "type": "array",
+            "items": {
+              "required": [
+                "id",
+                "name",
+                "hash",
+                "mime",
+                "size",
+                "url",
+                "provider"
+              ],
+              "properties": {
+                "id": {
+                  "type": "string"
+                },
+                "name": {
+                  "type": "string"
+                },
+                "alternativeText": {
+                  "type": "string"
+                },
+                "caption": {
+                  "type": "string"
+                },
+                "width": {
+                  "type": "integer"
+                },
+                "height": {
+                  "type": "integer"
+                },
+                "formats": {
+                  "type": "object"
+                },
+                "hash": {
+                  "type": "string"
+                },
+                "ext": {
+                  "type": "string"
+                },
+                "mime": {
+                  "type": "string"
+                },
+                "size": {
+                  "type": "number"
+                },
+                "url": {
+                  "type": "string"
+                },
+                "previewUrl": {
+                  "type": "string"
+                },
+                "provider": {
+                  "type": "string"
+                },
+                "provider_metadata": {
+                  "type": "object"
+                },
+                "related": {
+                  "type": "string"
+                },
+                "created_by": {
+                  "type": "string"
+                },
+                "updated_by": {
+                  "type": "string"
+                }
+              }
+            }
+          },
           "shop_user": {
             "required": [
               "id"
@@ -614,23 +706,17 @@
               "place": {
                 "type": "string"
               },
-              "shop_products": {
-                "type": "array",
-                "items": {
-                  "type": "string"
-                }
-              },
               "latitude": {
                 "type": "string"
               },
               "longitude": {
                 "type": "string"
               },
-              "delivery_partners": {
-                "type": "array",
-                "items": {
-                  "type": "string"
-                }
+              "is_verified": {
+                "type": "boolean"
+              },
+              "shop_plan": {
+                "type": "string"
               },
               "published_at": {
                 "type": "string"
@@ -642,58 +728,6 @@
                 "type": "string"
               }
             }
-          },
-          "product_images": {
-            "type": "array",
-            "items": {
-              "required": [
-                "id"
-              ],
-              "properties": {
-                "id": {
-                  "type": "string"
-                },
-                "shop_product": {
-                  "type": "string"
-                },
-                "images": {
-                  "type": "string"
-                },
-                "status": {
-                  "type": "boolean"
-                },
-                "published_at": {
-                  "type": "string"
-                },
-                "created_by": {
-                  "type": "string"
-                },
-                "updated_by": {
-                  "type": "string"
-                }
-              }
-            }
-          },
-          "status": {
-            "type": "boolean",
-            "default": true
-          },
-          "price": {
-            "type": "number"
-          },
-          "stock": {
-            "type": "number"
-          },
-          "virtual_stock": {
-            "type": "number"
-          },
-          "is_wholesale": {
-            "type": "boolean",
-            "default": false
-          },
-          "discount": {
-            "type": "number",
-            "default": 0
           },
           "published_at": {
             "type": "string",
@@ -716,15 +750,6 @@
             "type": "string",
             "format": "date-time"
           },
-          "shop_user": {
-            "type": "string"
-          },
-          "product_images": {
-            "type": "array",
-            "items": {
-              "type": "string"
-            }
-          },
           "status": {
             "type": "boolean",
             "default": true
@@ -745,6 +770,9 @@
           "discount": {
             "type": "number",
             "default": 0
+          },
+          "shop_user": {
+            "type": "string"
           },
           "published_at": {
             "type": "string",
