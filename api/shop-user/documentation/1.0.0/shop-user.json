@@ -814,6 +814,46 @@
               }
             }
           },
+          "order_child": {
+            "required": [
+              "id"
+            ],
+            "properties": {
+              "id": {
+                "type": "string"
+              },
+              "is_processed": {
+                "type": "boolean"
+              },
+              "is_dispatched": {
+                "type": "boolean"
+              },
+              "is_delivered": {
+                "type": "boolean"
+              },
+              "order": {
+                "type": "string"
+              },
+              "product": {
+                "type": "string"
+              },
+              "public_user": {
+                "type": "string"
+              },
+              "shop_user": {
+                "type": "string"
+              },
+              "published_at": {
+                "type": "string"
+              },
+              "created_by": {
+                "type": "string"
+              },
+              "updated_by": {
+                "type": "string"
+              }
+            }
+          },
           "published_at": {
             "type": "string",
             "format": "date-time"
@@ -855,6 +895,9 @@
             "default": false
           },
           "shop_plan": {
+            "type": "string"
+          },
+          "order_child": {
             "type": "string"
           },
           "published_at": {

@@ -1,6 +1,6 @@
 {
   "paths": {
-    "/public-products": {
+    "/order-children": {
       "get": {
         "deprecated": false,
         "description": "",
@@ -52,7 +52,7 @@
         },
         "summary": "",
         "tags": [
-          "Public-product"
+          "Order-child"
         ],
         "parameters": [
           {
@@ -244,7 +244,7 @@
         },
         "summary": "",
         "tags": [
-          "Public-product"
+          "Order-child"
         ],
         "requestBody": {
           "description": "",
@@ -252,14 +252,14 @@
           "content": {
             "application/json": {
               "schema": {
-                "$ref": "#/components/schemas/NewPublic-product"
+                "$ref": "#/components/schemas/NewOrder-child"
               }
             }
           }
         }
       }
     },
-    "/public-products/count": {
+    "/order-children/count": {
       "get": {
         "deprecated": false,
         "description": "",
@@ -311,12 +311,12 @@
         },
         "summary": "",
         "tags": [
-          "Public-product"
+          "Order-child"
         ],
         "parameters": []
       }
     },
-    "/public-products/{id}": {
+    "/order-children/{id}": {
       "get": {
         "deprecated": false,
         "description": "",
@@ -368,7 +368,7 @@
         },
         "summary": "",
         "tags": [
-          "Public-product"
+          "Order-child"
         ],
         "parameters": [
           {
@@ -434,7 +434,7 @@
         },
         "summary": "",
         "tags": [
-          "Public-product"
+          "Order-child"
         ],
         "requestBody": {
           "description": "",
@@ -442,7 +442,7 @@
           "content": {
             "application/json": {
               "schema": {
-                "$ref": "#/components/schemas/NewPublic-product"
+                "$ref": "#/components/schemas/NewOrder-child"
               }
             }
           }
@@ -508,7 +508,7 @@
         },
         "summary": "",
         "tags": [
-          "Public-product"
+          "Order-child"
         ],
         "parameters": [
           {
@@ -527,27 +527,133 @@
   },
   "components": {
     "schemas": {
-      "Public-product": {
+      "Order-child": {
         "required": [
-          "id",
-          "name",
-          "description"
+          "id"
         ],
         "properties": {
           "id": {
             "type": "string"
           },
-          "name": {
-            "type": "string",
-            "maxLength": 50,
-            "minLength": 3
-          },
-          "description": {
-            "type": "string"
-          },
-          "status": {
+          "is_processed": {
             "type": "boolean",
-            "default": true
+            "default": false
+          },
+          "is_dispatched": {
+            "type": "boolean",
+            "default": false
+          },
+          "is_delivered": {
+            "type": "boolean"
+          },
+          "order": {
+            "required": [
+              "id",
+              "ordered_at"
+            ],
+            "properties": {
+              "id": {
+                "type": "string"
+              },
+              "is_delivered": {
+                "type": "boolean"
+              },
+              "is_processed": {
+                "type": "boolean"
+              },
+              "is_dispatched": {
+                "type": "boolean"
+              },
+              "is_shop_products": {
+                "type": "boolean"
+              },
+              "order_children": {
+                "type": "array",
+                "items": {
+                  "type": "string"
+                }
+              },
+              "public_user": {
+                "type": "string"
+              },
+              "ordered_at": {
+                "type": "string"
+              },
+              "published_at": {
+                "type": "string"
+              },
+              "created_by": {
+                "type": "string"
+              },
+              "updated_by": {
+                "type": "string"
+              }
+            }
+          },
+          "product": {
+            "required": [
+              "id",
+              "product_images"
+            ],
+            "properties": {
+              "id": {
+                "type": "string"
+              },
+              "name": {
+                "type": "string"
+              },
+              "description": {
+                "type": "string"
+              },
+              "product_sub_category": {
+                "type": "string"
+              },
+              "added_date": {
+                "type": "string"
+              },
+              "status": {
+                "type": "boolean"
+              },
+              "price": {
+                "type": "number"
+              },
+              "stock": {
+                "type": "number"
+              },
+              "virtual_stock": {
+                "type": "number"
+              },
+              "is_wholesale": {
+                "type": "boolean"
+              },
+              "discount": {
+                "type": "number"
+              },
+              "product_images": {
+                "type": "array",
+                "items": {
+                  "type": "string"
+                }
+              },
+              "shop_user": {
+                "type": "string"
+              },
+              "public_user": {
+                "type": "string"
+              },
+              "is_shop_product": {
+                "type": "boolean"
+              },
+              "published_at": {
+                "type": "string"
+              },
+              "created_by": {
+                "type": "string"
+              },
+              "updated_by": {
+                "type": "string"
+              }
+            }
           },
           "public_user": {
             "required": [
@@ -581,6 +687,15 @@
               "last_active_date": {
                 "type": "string"
               },
+              "order": {
+                "type": "string"
+              },
+              "order_children": {
+                "type": "array",
+                "items": {
+                  "type": "string"
+                }
+              },
               "published_at": {
                 "type": "string"
               },
@@ -592,48 +707,64 @@
               }
             }
           },
-          "virtual_stock": {
-            "type": "integer"
-          },
-          "actual_stock": {
-            "type": "integer"
-          },
-          "show_as": {
-            "type": "string",
-            "enum": [
-              "Ads",
-              "Product",
-              "Service"
-            ]
-          },
-          "product_images": {
-            "type": "array",
-            "items": {
-              "required": [
-                "id"
-              ],
-              "properties": {
-                "id": {
-                  "type": "string"
-                },
-                "images": {
-                  "type": "string"
-                },
-                "status": {
-                  "type": "boolean"
-                },
-                "public_product": {
-                  "type": "string"
-                },
-                "published_at": {
-                  "type": "string"
-                },
-                "created_by": {
-                  "type": "string"
-                },
-                "updated_by": {
-                  "type": "string"
-                }
+          "shop_user": {
+            "required": [
+              "id"
+            ],
+            "properties": {
+              "id": {
+                "type": "string"
+              },
+              "shop_name": {
+                "type": "string"
+              },
+              "shop_image": {
+                "type": "string"
+              },
+              "shop_cover_image": {
+                "type": "string"
+              },
+              "about_shop": {
+                "type": "string"
+              },
+              "date_of_join": {
+                "type": "string"
+              },
+              "is_closed": {
+                "type": "boolean"
+              },
+              "is_expired": {
+                "type": "boolean"
+              },
+              "users_permissions_user": {
+                "type": "string"
+              },
+              "place": {
+                "type": "string"
+              },
+              "latitude": {
+                "type": "string"
+              },
+              "longitude": {
+                "type": "string"
+              },
+              "is_verified": {
+                "type": "boolean"
+              },
+              "shop_plan": {
+                "type": "string"
+              },
+              "order_child": {
+                "type": "string"
+              },
+              "published_at": {
+                "type": "string"
+              },
+              "created_by": {
+                "type": "string"
+              },
+              "updated_by": {
+                "type": "string"
               }
             }
           },
@@ -643,46 +774,30 @@
           }
         }
       },
-      "NewPublic-product": {
-        "required": [
-          "name",
-          "description"
-        ],
+      "NewOrder-child": {
         "properties": {
-          "name": {
-            "type": "string",
-            "maxLength": 50,
-            "minLength": 3
+          "is_processed": {
+            "type": "boolean",
+            "default": false
           },
-          "description": {
+          "is_dispatched": {
+            "type": "boolean",
+            "default": false
+          },
+          "is_delivered": {
+            "type": "boolean"
+          },
+          "order": {
             "type": "string"
           },
-          "status": {
-            "type": "boolean",
-            "default": true
+          "product": {
+            "type": "string"
           },
           "public_user": {
             "type": "string"
           },
-          "virtual_stock": {
-            "type": "integer"
-          },
-          "actual_stock": {
-            "type": "integer"
-          },
-          "show_as": {
-            "type": "string",
-            "enum": [
-              "Ads",
-              "Product",
-              "Service"
-            ]
-          },
-          "product_images": {
-            "type": "array",
-            "items": {
-              "type": "string"
-            }
+          "shop_user": {
+            "type": "string"
           },
           "published_at": {
             "type": "string",

@@ -606,54 +606,6 @@
             "type": "boolean",
             "default": true
           },
-          "public_product": {
-            "required": [
-              "id",
-              "name",
-              "description"
-            ],
-            "properties": {
-              "id": {
-                "type": "string"
-              },
-              "name": {
-                "type": "string"
-              },
-              "description": {
-                "type": "string"
-              },
-              "status": {
-                "type": "boolean"
-              },
-              "public_user": {
-                "type": "string"
-              },
-              "virtual_stock": {
-                "type": "integer"
-              },
-              "actual_stock": {
-                "type": "integer"
-              },
-              "show_as": {
-                "type": "string"
-              },
-              "product_images": {
-                "type": "array",
-                "items": {
-                  "type": "string"
-                }
-              },
-              "published_at": {
-                "type": "string"
-              },
-              "created_by": {
-                "type": "string"
-              },
-              "updated_by": {
-                "type": "string"
-              }
-            }
-          },
           "published_at": {
             "type": "string",
             "format": "date-time"
@@ -665,9 +617,6 @@
           "status": {
             "type": "boolean",
             "default": true
-          },
-          "public_product": {
-            "type": "string"
           },
           "published_at": {
             "type": "string",

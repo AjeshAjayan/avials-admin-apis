@@ -718,6 +718,9 @@
               "shop_plan": {
                 "type": "string"
               },
+              "order_child": {
+                "type": "string"
+              },
               "published_at": {
                 "type": "string"
               },
@@ -728,6 +731,61 @@
                 "type": "string"
               }
             }
+          },
+          "public_user": {
+            "required": [
+              "id"
+            ],
+            "properties": {
+              "id": {
+                "type": "string"
+              },
+              "full_name": {
+                "type": "string"
+              },
+              "phone_number": {
+                "type": "string"
+              },
+              "place": {
+                "type": "string"
+              },
+              "date_of_join": {
+                "type": "string"
+              },
+              "users_permissions_user": {
+                "type": "string"
+              },
+              "profile_pic": {
+                "type": "string"
+              },
+              "is_blocked": {
+                "type": "boolean"
+              },
+              "last_active_date": {
+                "type": "string"
+              },
+              "order": {
+                "type": "string"
+              },
+              "order_children": {
+                "type": "array",
+                "items": {
+                  "type": "string"
+                }
+              },
+              "published_at": {
+                "type": "string"
+              },
+              "created_by": {
+                "type": "string"
+              },
+              "updated_by": {
+                "type": "string"
+              }
+            }
+          },
+          "is_shop_product": {
+            "type": "boolean"
           },
           "published_at": {
             "type": "string",
@@ -773,6 +831,12 @@
           },
           "shop_user": {
             "type": "string"
+          },
+          "public_user": {
+            "type": "string"
+          },
+          "is_shop_product": {
+            "type": "boolean"
           },
           "published_at": {
             "type": "string",

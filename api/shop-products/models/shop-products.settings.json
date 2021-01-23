@@ -2,7 +2,7 @@
   "kind": "collectionType",
   "collectionName": "shop_products",
   "info": {
-    "name": "Shop Products",
+    "name": "Products",
     "description": ""
   },
   "options": {
@@ -57,6 +57,12 @@
     },
     "shop_user": {
       "model": "shop-user"
+    },
+    "public_user": {
+      "model": "public-user"
+    },
+    "is_shop_product": {
+      "type": "boolean"
     }
   }
 }

@@ -24,10 +24,6 @@
     "status": {
       "type": "boolean",
       "default": true
-    },
-    "public_product": {
-      "via": "product_images",
-      "model": "public-product"
     }
   }
 }

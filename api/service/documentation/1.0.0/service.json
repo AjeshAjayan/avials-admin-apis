@@ -582,6 +582,15 @@
               "last_active_date": {
                 "type": "string"
               },
+              "order": {
+                "type": "string"
+              },
+              "order_children": {
+                "type": "array",
+                "items": {
+                  "type": "string"
+                }
+              },
               "published_at": {
                 "type": "string"
               },

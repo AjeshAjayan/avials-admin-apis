@@ -67,6 +67,10 @@
     },
     "shop_plan": {
       "model": "shop-plans"
+    },
+    "order_child": {
+      "via": "shop_user",
+      "model": "order-child"
     }
   }
 }
