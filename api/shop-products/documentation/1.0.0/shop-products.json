@@ -764,10 +764,13 @@
               "last_active_date": {
                 "type": "string"
               },
-              "order": {
-                "type": "string"
-              },
               "order_children": {
+                "type": "array",
+                "items": {
+                  "type": "string"
+                }
+              },
+              "orders": {
                 "type": "array",
                 "items": {
                   "type": "string"

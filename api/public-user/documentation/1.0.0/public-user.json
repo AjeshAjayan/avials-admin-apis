@@ -699,50 +699,6 @@
             "type": "string",
             "format": "date-time"
           },
-          "order": {
-            "required": [
-              "id",
-              "ordered_at"
-            ],
-            "properties": {
-              "id": {
-                "type": "string"
-              },
-              "is_delivered": {
-                "type": "boolean"
-              },
-              "is_processed": {
-                "type": "boolean"
-              },
-              "is_dispatched": {
-                "type": "boolean"
-              },
-              "is_shop_products": {
-                "type": "boolean"
-              },
-              "order_children": {
-                "type": "array",
-                "items": {
-                  "type": "string"
-                }
-              },
-              "public_user": {
-                "type": "string"
-              },
-              "ordered_at": {
-                "type": "string"
-              },
-              "published_at": {
-                "type": "string"
-              },
-              "created_by": {
-                "type": "string"
-              },
-              "updated_by": {
-                "type": "string"
-              }
-            }
-          },
           "order_children": {
             "type": "array",
             "items": {
@@ -772,6 +728,56 @@
                   "type": "string"
                 },
                 "shop_user": {
+                  "type": "string"
+                },
+                "published_at": {
+                  "type": "string"
+                },
+                "created_by": {
+                  "type": "string"
+                },
+                "updated_by": {
+                  "type": "string"
+                }
+              }
+            }
+          },
+          "orders": {
+            "type": "array",
+            "items": {
+              "required": [
+                "id",
+                "ordered_at"
+              ],
+              "properties": {
+                "id": {
+                  "type": "string"
+                },
+                "is_delivered": {
+                  "type": "boolean"
+                },
+                "is_processed": {
+                  "type": "boolean"
+                },
+                "is_dispatched": {
+                  "type": "boolean"
+                },
+                "is_shop_products": {
+                  "type": "boolean"
+                },
+                "order_children": {
+                  "type": "array",
+                  "items": {
+                    "type": "string"
+                  }
+                },
+                "public_user": {
+                  "type": "string"
+                },
+                "ordered_at": {
+                  "type": "string"
+                },
+                "manager": {
                   "type": "string"
                 },
                 "published_at": {
@@ -818,10 +824,13 @@
             "type": "string",
             "format": "date-time"
           },
-          "order": {
-            "type": "string"
-          },
           "order_children": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            }
+          },
+          "orders": {
             "type": "array",
             "items": {
               "type": "string"

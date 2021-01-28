@@ -33,6 +33,14 @@
       }
     },
     {
+      "method": "GET",
+      "path": "/managers/:id/orders",
+      "handler": "managers.getManagerOrders",
+      "config": {
+        "policies": []
+      }
+    },
+    {
       "method": "POST",
       "path": "/managers",
       "handler": "managers.create",

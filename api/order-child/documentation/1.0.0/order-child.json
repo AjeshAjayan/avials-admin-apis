@@ -579,6 +579,9 @@
               "ordered_at": {
                 "type": "string"
               },
+              "manager": {
+                "type": "string"
+              },
               "published_at": {
                 "type": "string"
               },
@@ -687,10 +690,13 @@
               "last_active_date": {
                 "type": "string"
               },
-              "order": {
-                "type": "string"
-              },
               "order_children": {
+                "type": "array",
+                "items": {
+                  "type": "string"
+                }
+              },
+              "orders": {
                 "type": "array",
                 "items": {
                   "type": "string"

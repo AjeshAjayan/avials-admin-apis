@@ -33,12 +33,15 @@
     },
     "public_user": {
       "model": "public-user",
-      "via": "order"
+      "via": "orders"
     },
     "ordered_at": {
       "type": "datetime",
       "required": true,
       "default": "1900-01-01T06:38:50.000Z"
+    },
+    "manager": {
+      "model": "managers"
     }
   }
 }

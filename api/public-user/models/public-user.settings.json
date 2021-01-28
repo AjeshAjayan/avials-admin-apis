@@ -44,13 +44,13 @@
     "last_active_date": {
       "type": "datetime"
     },
-    "order": {
-      "via": "public_user",
-      "model": "orders"
-    },
     "order_children": {
       "via": "public_user",
       "collection": "order-child"
+    },
+    "orders": {
+      "via": "public_user",
+      "collection": "orders"
     }
   }
 }

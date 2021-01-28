@@ -614,10 +614,13 @@
               "last_active_date": {
                 "type": "string"
               },
-              "order": {
-                "type": "string"
-              },
               "order_children": {
+                "type": "array",
+                "items": {
+                  "type": "string"
+                }
+              },
+              "orders": {
                 "type": "array",
                 "items": {
                   "type": "string"
@@ -638,6 +641,69 @@
             "type": "string",
             "format": "date-time",
             "default": "1900-01-01T06:38:50.000Z"
+          },
+          "manager": {
+            "required": [
+              "id",
+              "fullname",
+              "email"
+            ],
+            "properties": {
+              "id": {
+                "type": "string"
+              },
+              "fullname": {
+                "type": "string"
+              },
+              "is_active": {
+                "type": "boolean"
+              },
+              "place": {
+                "type": "string"
+              },
+              "is_terminated": {
+                "type": "boolean"
+              },
+              "is_resigned": {
+                "type": "boolean"
+              },
+              "date_of_birth": {
+                "type": "string"
+              },
+              "date_of_joining": {
+                "type": "string"
+              },
+              "is_verified": {
+                "type": "boolean"
+              },
+              "users_permissions_user": {
+                "type": "string"
+              },
+              "places": {
+                "type": "array",
+                "items": {
+                  "type": "string"
+                }
+              },
+              "profile_pic": {
+                "type": "string"
+              },
+              "users_permissions_role": {
+                "type": "string"
+              },
+              "email": {
+                "type": "string"
+              },
+              "published_at": {
+                "type": "string"
+              },
+              "created_by": {
+                "type": "string"
+              },
+              "updated_by": {
+                "type": "string"
+              }
+            }
           },
           "published_at": {
             "type": "string",
@@ -679,6 +745,9 @@
             "type": "string",
             "format": "date-time",
             "default": "1900-01-01T06:38:50.000Z"
+          },
+          "manager": {
+            "type": "string"
           },
           "published_at": {
             "type": "string",
