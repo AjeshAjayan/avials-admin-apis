@@ -561,8 +561,11 @@
               "pincode": {
                 "type": "integer"
               },
-              "manager": {
-                "type": "string"
+              "managers": {
+                "type": "array",
+                "items": {
+                  "type": "string"
+                }
               },
               "published_at": {
                 "type": "string"

@@ -41,6 +41,14 @@
       }
     },
     {
+      "method": "GET",
+      "path": "/managers/:id/shops",
+      "handler": "managers.getManagerShops",
+      "config": {
+        "policies": []
+      }
+    },
+    {
       "method": "POST",
       "path": "/managers",
       "handler": "managers.create",

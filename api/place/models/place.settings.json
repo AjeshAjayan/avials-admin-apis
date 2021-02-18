@@ -24,9 +24,9 @@
     "pincode": {
       "type": "biginteger"
     },
-    "manager": {
+    "managers": {
       "via": "places",
-      "model": "managers"
+      "collection": "managers"
     }
   }
 }

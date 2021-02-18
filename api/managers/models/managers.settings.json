@@ -46,7 +46,8 @@
     },
     "places": {
       "collection": "place",
-      "via": "manager"
+      "via": "managers",
+      "dominant": true
     },
     "profile_pic": {
       "model": "file",

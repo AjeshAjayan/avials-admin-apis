@@ -41,18 +41,33 @@ module.exports = {
             /**@type {Array} */
             let response = await strapi.services.orders.find({ manager: id , _start: start, _limit: limit }, [
                 'public_user',
+                'shop_user',
                 'public_user.place',
-                'public_user',
                 'public_user.profile_pic',
                 'order_children.shop_user',
                 'order_children.shop_user.shop_name',
                 'order_children.public_user',
-
             ]);
 
             return sanitizeEntity(response, { model: strapi.models.orders });
         } catch (e) {
             console.log('error getManagerOrders', e);
+        }
+    },
+
+    async getManagerShops(ctx) {
+        try {
+
+            const knex = strapi.connections.default;
+
+            const managerId = ctx.params.id;
+            const manager = await strapi.query('managers').findOne({ id: managerId }, ['places.id']);
+            /**@type {Array.<Number>} */
+            const assignedPlaceIds = manager.places.map(p => p.id);
+            const shops = await strapi.query('shop-user').find({ place_in: assignedPlaceIds });
+            return shops;
+        } catch(e) {
+            console.log('error getManagerShops', e);
         }
     }
 };
