@@ -47,6 +47,14 @@
       "config": {
         "policies": []
       }
+    },
+    {
+      "method": "GET",
+      "path": "/shop-users/:id/details",
+      "handler": "shop-user.shopDetails",
+      "config": {
+        "policies": []
+      }
     }
   ]
 }
